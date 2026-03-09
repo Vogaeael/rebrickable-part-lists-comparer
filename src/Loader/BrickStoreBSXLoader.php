@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Vogaeael\RebrickablePartListsComparer\Loader;
 
@@ -17,7 +17,11 @@ class BrickStoreBSXLoader extends AbstractLoader
         $parts = [];
         $parentElement = simplexml_load_file($filePath);
         foreach ($parentElement['BrickStoreXml']['Inventory']->children() as $item) {
-            $part = new BrickStoreBSXPart($item['ItemTypeID'], $item['ItemID'], $item['ColorID'], $item['Qty']);
+            $itemType = (string) $item['ItemTypeID'];
+            $itemId = (string) $item['ItemID'];
+            $colorId = (string) $item['ColorID'];
+            $quantity = (int) $item['Qty'];
+            $part = new BrickStoreBSXPart($itemType, $itemId, $colorId, $quantity);
             $parts[$part->generateKey()] = $part;
         }
 

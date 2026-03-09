@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Vogaeael\RebrickablePartListsComparer\Loader;
 
@@ -17,7 +17,11 @@ class BrickLinkLoader extends AbstractLoader
         $parts = [];
         $parentElement = simplexml_load_file($filePath);
         foreach ($parentElement['INVENTORY']->children() as $item) {
-            $part = new BrickLinkPart($item['ITEMTYPE'], $item['ITEMID'], $item['COLOR'], $item['MINQTY']);
+            $itemType = (string) $item['ITEMTYPE'];
+            $itemId = (string) $item['ITEMID'];
+            $colorId = (string) $item['COLORID'];
+            $quantity = (int) $item['MINQTY'];
+            $part = new BrickLinkPart($itemType, $itemId, $colorId, $quantity);
             $parts[$part->generateKey()] = $part;
         }
 

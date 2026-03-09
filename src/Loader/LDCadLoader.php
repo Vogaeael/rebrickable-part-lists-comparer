@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Vogaeael\RebrickablePartListsComparer\Loader;
 
@@ -25,7 +25,7 @@ class LDCadLoader extends AbstractLoader
 
         $parts = [];
         foreach ($matches as $match) {
-            $part = new LDCadPart($match[1], $match[3], $match[2], $match[4]);
+            $part = new LDCadPart($match[1], $match[3], $match[2], (int)$match[4]);
             $parts[$part->generateKey()] = $part;
         }
 
