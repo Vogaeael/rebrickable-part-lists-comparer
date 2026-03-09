@@ -11,5 +11,5 @@ abstract class AbstractWriter implements PartWriter
     ) {
     }
 
-    abstract public function writePart(array $parts): void;
+    abstract public function writePart(array $parts, string $filePath): void;
 }

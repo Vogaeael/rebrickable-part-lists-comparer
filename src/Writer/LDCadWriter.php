@@ -10,7 +10,7 @@ class LDCadWriter extends AbstractWriter
     /**
      * @throws Exception
      */
-    public function writePart(array $parts): void
+    public function writePart(array $parts, string $filePath): void
     {
         $content = '[options]' . PHP_EOL;
         $content .= 'kind=basic' . PHP_EOL;
@@ -30,6 +30,6 @@ class LDCadWriter extends AbstractWriter
             $content .= '[count=' . $part->getQuantity() . ']' . PHP_EOL;
         }
 
-        file_put_contents('data/ldcad-result.pbg', $content);
+        file_put_contents($filePath, $content);
     }
 }

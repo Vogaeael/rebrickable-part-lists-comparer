@@ -10,7 +10,7 @@ class BrickLinkWriter extends AbstractWriter
     /**
      * @throws Exception
      */
-    public function writePart(array $parts): void
+    public function writePart(array $parts, string $filePath): void
     {
         $xml = '<INVENTORY>' . PHP_EOL;
         foreach ($parts as $part) {
@@ -30,6 +30,6 @@ class BrickLinkWriter extends AbstractWriter
 
         $xml .= '</INVENTORY>';
 
-        file_put_contents('data/bricklink-result.xml', $xml);
+        file_put_contents($filePath, $xml);
     }
 }

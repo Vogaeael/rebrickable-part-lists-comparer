@@ -4,5 +4,5 @@ namespace Vogaeael\RebrickablePartListsComparer\Writer;
 
 interface PartWriter
 {
-    public function writePart(array $parts): void;
+    public function writePart(array $parts, string $filePath): void;
 }

@@ -10,7 +10,7 @@ class BrickStoreBSXWriter extends AbstractWriter
     /**
      * @throws Exception
      */
-    public function writePart(array $parts): void
+    public function writePart(array $parts, string $filePath): void
     {
         $xml = '<BrickStoreXML><Inventory>' . PHP_EOL;
         foreach ($parts as $part) {
@@ -30,6 +30,6 @@ class BrickStoreBSXWriter extends AbstractWriter
 
         $xml .= '</Inventory></BrickStoreXML>';
 
-        file_put_contents('data/brickstore-result.bsx', $xml);
+        file_put_contents($filePath, $xml);
     }
 }

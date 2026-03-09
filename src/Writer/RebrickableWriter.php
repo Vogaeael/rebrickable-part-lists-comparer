@@ -10,9 +10,9 @@ class RebrickableWriter extends AbstractWriter
     /**
      * @throws Exception
      */
-    public function writePart(array $parts): void
+    public function writePart(array $parts, string $filePath): void
     {
-        $fp = fopen('lego_pab-result.csv', 'w+');
+        $fp = fopen($filePath, 'w+');
         fputcsv($fp, ['Part', 'Color', 'Quantity', 'Is Spare'], ",", "");
         foreach ($parts as $part) {
             $this->checkClass->checkClass($part, RebrickablePart::class);
