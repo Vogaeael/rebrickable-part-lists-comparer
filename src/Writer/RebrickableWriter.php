@@ -15,7 +15,7 @@ class RebrickableWriter extends AbstractWriter
         $fp = fopen('lego_pab-result.csv', 'w+');
         fputcsv($fp, ['Part', 'Color', 'Quantity', 'Is Spare'], ",", "");
         foreach ($parts as $part) {
-            $this->checkClassType($part, RebrickablePart::class);
+            $this->checkClass->checkClass($part, RebrickablePart::class);
 
             /** @var RebrickablePart $part */
             if ($part->getQuantity() !== 0) {

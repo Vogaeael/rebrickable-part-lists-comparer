@@ -18,7 +18,7 @@ class LDCadWriter extends AbstractWriter
         $content .= 'sortOn=description' . PHP_EOL . PHP_EOL;
         $content .= '<items>' . PHP_EOL;
         foreach ($parts as $part) {
-            $this->checkClassType($part, LDCadPart::class);
+            $this->checkClass->checkClass($part, LDCadPart::class);
             if ($part->getQuantity() === 0) {
                 continue;
             }

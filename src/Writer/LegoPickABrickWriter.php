@@ -15,7 +15,7 @@ class LegoPickABrickWriter extends AbstractWriter
         $fp = fopen('lego_pab-result.csv', 'w+');
         fputcsv($fp, ['elementId', 'quantity'], ",", "");
         foreach ($parts as $part) {
-            $this->checkClassType($part, LegoPickABrickPart::class);
+            $this->checkClass->checkClass($part, LegoPickABrickPart::class);
             if ($part->getQuantity() === 0) {
                 continue;
             }

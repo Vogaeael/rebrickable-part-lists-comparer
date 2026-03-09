@@ -14,7 +14,7 @@ class BrickStoreBSXWriter extends AbstractWriter
     {
         $xml = '<BrickStoreXML><Inventory>' . PHP_EOL;
         foreach ($parts as $part) {
-            $this->checkClassType($part, BrickStoreBSXPart::class);
+            $this->checkClass->checkClass($part, BrickStoreBSXPart::class);
             if ($part->getQuantity() === 0) {
                 continue;
             }

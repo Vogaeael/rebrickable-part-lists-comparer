@@ -14,7 +14,7 @@ class BrickLinkWriter extends AbstractWriter
     {
         $xml = '<INVENTORY>' . PHP_EOL;
         foreach ($parts as $part) {
-            $this->checkClassType($part, BrickLinkPart::class);
+            $this->checkClass->checkClass($part, BrickLinkPart::class);
             if ($part->getQuantity() === 0) {
                 continue;
             }
