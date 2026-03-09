@@ -11,14 +11,13 @@ class BrickLinkSubtractor extends AbstractSubtractor
     /**
      * @throws Exception
      */
-    public function subtract(Part $partA, Part $partB): BrickLinkPart
+    public function subtract(Part $partA, ?Part $partB): BrickLinkPart
     {
         $this->checkClass->checkClass($partA, BrickLinkPart::class);
-        $this->checkClass->checkClass($partB, BrickLinkPart::class);
+        $bQuantity = $partB?->getQuantity() ?? 0;
 
         /** @var BrickLinkPart $partA */
-        /** @var BrickLinkPart $partB */
-        $quantity = max(0, $partA->getQuantity() - $partB->getQuantity());
+        $quantity = max(0, $partA->getQuantity() - $bQuantity);
 
         return new BrickLinkPart($partA->getItemType(), $partA->getItemId(), $partA->getColorId(), $quantity);
     }

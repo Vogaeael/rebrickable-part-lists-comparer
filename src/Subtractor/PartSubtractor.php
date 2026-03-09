@@ -6,5 +6,5 @@ use Vogaeael\RebrickablePartListsComparer\Model\Part;
 
 interface PartSubtractor
 {
-    public function subtract(Part $partA, Part $partB): Part;
+    public function subtract(Part $partA, ?Part $partB): Part;
 }

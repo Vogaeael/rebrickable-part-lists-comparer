@@ -11,14 +11,13 @@ class BrickStoreBSXSubtractor extends AbstractSubtractor
     /**
      * @throws Exception
      */
-    public function subtract(Part $partA, Part $partB): Part
+    public function subtract(Part $partA, ?Part $partB): Part
     {
         $this->checkClass->checkClass($partA, BrickStoreBSXPart::class);
-        $this->checkClass->checkClass($partB, BrickStoreBSXPart::class);
+        $bQuantity = $partB?->getQuantity() ?? 0;
 
         /** @var BrickStoreBSXPart $partA */
-        /** @var BrickStoreBSXPart $partB */
-        $quantity = max(0, $partA->getQuantity() - $partB->getQuantity());
+        $quantity = max(0, $partA->getQuantity() - $bQuantity);
 
         return new BrickStoreBSXPart($partA->getItemTypeId(), $partA->getItemId(), $partA->getColorId(), $quantity);
     }

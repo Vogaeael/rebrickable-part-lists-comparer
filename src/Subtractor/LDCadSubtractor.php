@@ -11,14 +11,13 @@ class LDCadSubtractor extends AbstractSubtractor
     /**
      * @throws Exception
      */
-    public function subtract(Part $partA, Part $partB): Part
+    public function subtract(Part $partA, ?Part $partB): Part
     {
         $this->checkClass->checkClass($partA, LDCadPart::class);
-        $this->checkClass->checkClass($partB, LDCadPart::class);
+        $bQuantity = $partB?->getQuantity() ?? 0;
 
         /** @var LDCadPart $partA */
-        /** @var LDCadPart $partB */
-        $quantity = max(0, $partA->getQuantity() - $partB->getQuantity());
+        $quantity = max(0, $partA->getQuantity() - $bQuantity);
 
         return new LDCadPart($partA->getIdentifier(), $partA->getColor(), $partA->getSourceInv(), $quantity);
     }

@@ -11,14 +11,13 @@ class LegoPickABrickSubtractor extends AbstractSubtractor
     /**
      * @throws Exception
      */
-    public function subtract(Part $partA, Part $partB): Part
+    public function subtract(Part $partA, ?Part $partB): Part
     {
         $this->checkClass->checkClass($partA, LegoPickABrickPart::class);
-        $this->checkClass->checkClass($partB, LegoPickABrickPart::class);
+        $bQuantity = $partB?->getQuantity() ?? 0;
 
         /** @var LegoPickABrickPart $partA */
-        /** @var LegoPickABrickPart $partB */
-        $quantity = max(0, $partA->getQuantity() - $partB->getQuantity());
+        $quantity = max(0, $partA->getQuantity() - $bQuantity);
 
         return new LegoPickABrickPart($partA->getElementId(), $quantity);
     }
