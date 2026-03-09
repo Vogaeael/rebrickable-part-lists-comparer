@@ -4,21 +4,25 @@ namespace Vogaeael\RebrickablePartListsComparer\Model;
 
 class BrickStoreBSXPart extends AbstractPart
 {
-    private string $itemTypeID;
+    private string $itemTypeId;
     private string $itemId;
     private string $colorId;
 
-    public function __construct(string $itemTypeID, string $itemId, string $colorId, int $quantity)
-    {
+    public function __construct(
+        string $itemTypeId,
+        string $itemId,
+        string $colorId,
+        int $quantity
+    ) {
         parent::__construct($quantity);
-        $this->itemTypeID = $itemTypeID;
+        $this->itemTypeId = $itemTypeId;
         $this->itemId = $itemId;
         $this->colorId = $colorId;
     }
 
     public function getItemTypeId(): string
     {
-        return $this->itemTypeID;
+        return $this->itemTypeId;
     }
 
     public function getItemId(): string
@@ -33,6 +37,6 @@ class BrickStoreBSXPart extends AbstractPart
 
     public function generateKey(): string
     {
-        return sprintf('t:%s-i:%s-c:%s', $this->itemTypeID, $this->itemId, $this->colorId);
+        return sprintf('t:%s-i:%s-c:%s', $this->itemTypeId, $this->itemId, $this->colorId);
     }
 }
