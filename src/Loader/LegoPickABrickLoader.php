@@ -18,13 +18,13 @@ class LegoPickABrickLoader extends AbstractLoader
         $parts = [];
         $ignoredFirstLine = false;
         if (($handle = fopen($filePath, "r")) !== FALSE) {
-            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ",", '"', '')) !== FALSE) {
                 if (!$ignoredFirstLine) {
                     $ignoredFirstLine = true;
                     continue;
                 }
 
-                $parts[] = new LegoPickABrickPart($data[0], $data[1]);
+                $parts[] = new LegoPickABrickPart((string)$data[0], (int)$data[1]);
             }
             fclose($handle);
 
