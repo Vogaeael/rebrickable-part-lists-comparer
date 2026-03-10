@@ -16,11 +16,11 @@ class BrickLinkLoader extends AbstractLoader
 
         $parts = [];
         $parentElement = simplexml_load_file($filePath);
-        foreach ($parentElement->children() as $item) {
-            $itemType = (string) $item['ITEMTYPE'];
-            $itemId = (string) $item['ITEMID'];
-            $colorId = (string) $item['COLORID'];
-            $quantity = (int) $item['MINQTY'];
+        foreach ($parentElement->xpath('/INVENTORY/ITEM') as $item) {
+            $itemType = (string) $item->xpath('ITEMTYPE')[0];
+            $itemId = (string) $item->xpath('ITEMID')[0];
+            $colorId = (string) $item->xpath('COLOR')[0];
+            $quantity = (int) $item->xpath('MINQTY')[0];
             $part = new BrickLinkPart($itemType, $itemId, $colorId, $quantity);
             $parts[$part->generateKey()] = $part;
         }

@@ -16,11 +16,11 @@ class BrickStoreBSXLoader extends AbstractLoader
 
         $parts = [];
         $parentElement = simplexml_load_file($filePath);
-        foreach ($parentElement->children()[0] as $item) {
-            $itemType = (string) $item['ItemTypeID'];
-            $itemId = (string) $item['ItemID'];
-            $colorId = (string) $item['ColorID'];
-            $quantity = (int) $item['Qty'];
+        foreach ($parentElement->xpath('/BrickStoreXML/Inventory/Item') as $item) {
+            $itemType = (string) $item->xpath('ItemTypeID')[0];
+            $itemId = (string) $item->xpath('ItemID')[0];
+            $colorId = (string) $item->xpath('ColorID')[0];
+            $quantity = (int) $item->xpath('Qty')[0];
             $part = new BrickStoreBSXPart($itemType, $itemId, $colorId, $quantity);
             $parts[$part->generateKey()] = $part;
         }
