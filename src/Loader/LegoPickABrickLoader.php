@@ -9,7 +9,7 @@ class LegoPickABrickLoader extends AbstractLoader
 {
 
     /**
-     * @throws Exception
+     * @inheritDoc
      */
     public function load(string $filePath): array
     {

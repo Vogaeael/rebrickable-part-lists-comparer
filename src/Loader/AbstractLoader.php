@@ -3,10 +3,14 @@
 namespace Vogaeael\RebrickablePartListsComparer\Loader;
 
 use Exception;
-use Vogaeael\RebrickablePartListsComparer\Loader\PartLoader;
+use Vogaeael\RebrickablePartListsComparer\Model\Part;
 
 abstract class AbstractLoader implements PartLoader
 {
+    /**
+     * @return Part[]
+     * @throws Exception
+     */
     abstract public function load(string $filePath): array;
 
     /**

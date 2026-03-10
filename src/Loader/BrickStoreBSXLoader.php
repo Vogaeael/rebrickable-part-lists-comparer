@@ -2,13 +2,12 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Loader;
 
-use Exception;
 use Vogaeael\RebrickablePartListsComparer\Model\BrickStoreBSXPart;
 
 class BrickStoreBSXLoader extends AbstractLoader
 {
     /**
-     * @throws Exception
+     * @inheritDoc
      */
     public function load(string $filePath): array
     {

@@ -7,10 +7,10 @@ use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 
 class LDCadLoader extends AbstractLoader
 {
-    private const PART_REGEX = '/([\da-z]+).dat:\[sourceInv=([a-z]+)] \[color=(\d+)] \[count=(\d+)]/';
+    private const string PART_REGEX = '/([\da-z]+).dat:\[sourceInv=([a-z]+)] \[color=(\d+)] \[count=(\d+)]/';
 
     /**
-     * @throws Exception
+     * @inheritDoc
      */
     public function load(string $filePath): array
     {
