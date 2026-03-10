@@ -12,7 +12,7 @@ class BrickStoreBSXWriter extends AbstractWriter
      */
     public function writePart(array $parts, string $filePath): void
     {
-        $xml = '<BrickStoreXML><Inventory>' . PHP_EOL;
+        $xml = '<BrickStoreXML><Inventory>';
         foreach ($parts as $part) {
             $this->checkClass->checkClass($part, BrickStoreBSXPart::class);
             if ($part->getQuantity() === 0) {
