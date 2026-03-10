@@ -19,7 +19,7 @@ class RebrickableLoader extends AbstractLoader
         $parts = [];
         $ignoredFirstLine = false;
         if (($handle = fopen($filePath, "r")) !== FALSE) {
-            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ",", '"', '')) !== FALSE) {
                 if (!$ignoredFirstLine) {
                     $ignoredFirstLine = true;
                     continue;
@@ -27,9 +27,9 @@ class RebrickableLoader extends AbstractLoader
                 $quantity = 0;
                 $spareQuantity = 0;
                 if ($data[3] === 'False') {
-                    $quantity = $data[2];
+                    $quantity = (int)$data[2];
                 } else {
-                    $spareQuantity = $data[2];
+                    $spareQuantity = (int)$data[2];
                 }
 
                 $part = new RebrickablePart($data[0], $data[1], $quantity, $spareQuantity);
