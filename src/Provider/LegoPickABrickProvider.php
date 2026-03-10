@@ -4,6 +4,7 @@ namespace Vogaeael\RebrickablePartListsComparer\Provider;
 
 use Vogaeael\RebrickablePartListsComparer\Loader\LegoPickABrickLoader;
 use Vogaeael\RebrickablePartListsComparer\Subtractor\BrickLinkSubtractor;
+use Vogaeael\RebrickablePartListsComparer\Subtractor\LegoPickABrickSubtractor;
 use Vogaeael\RebrickablePartListsComparer\Types;
 use Vogaeael\RebrickablePartListsComparer\Writer\LegoPickABrickWriter;
 
@@ -23,6 +24,6 @@ class LegoPickABrickProvider extends AbstractProvider
 
     protected function createSubtractor(): void
     {
-        $this->partSubtractor = new BrickLinkSubtractor($this->checkClass);
+        $this->partSubtractor = new LegoPickABrickSubtractor($this->checkClass);
     }
 }

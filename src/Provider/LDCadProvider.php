@@ -4,6 +4,7 @@ namespace Vogaeael\RebrickablePartListsComparer\Provider;
 
 use Vogaeael\RebrickablePartListsComparer\Loader\LDCadLoader;
 use Vogaeael\RebrickablePartListsComparer\Subtractor\BrickLinkSubtractor;
+use Vogaeael\RebrickablePartListsComparer\Subtractor\LDCadSubtractor;
 use Vogaeael\RebrickablePartListsComparer\Types;
 use Vogaeael\RebrickablePartListsComparer\Writer\LDCadWriter;
 
@@ -23,6 +24,6 @@ class LDCadProvider extends AbstractProvider
 
     protected function createSubtractor(): void
     {
-        $this->partSubtractor = new BrickLinkSubtractor($this->checkClass);
+        $this->partSubtractor = new LDCadSubtractor($this->checkClass);
     }
 }

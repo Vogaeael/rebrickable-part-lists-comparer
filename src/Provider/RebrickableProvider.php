@@ -4,6 +4,7 @@ namespace Vogaeael\RebrickablePartListsComparer\Provider;
 
 use Vogaeael\RebrickablePartListsComparer\Loader\RebrickableLoader;
 use Vogaeael\RebrickablePartListsComparer\Subtractor\BrickLinkSubtractor;
+use Vogaeael\RebrickablePartListsComparer\Subtractor\RebrickableSubtractor;
 use Vogaeael\RebrickablePartListsComparer\Types;
 use Vogaeael\RebrickablePartListsComparer\Writer\RebrickableWriter;
 
@@ -23,6 +24,6 @@ class RebrickableProvider extends AbstractProvider
 
     protected function createSubtractor(): void
     {
-        $this->partSubtractor = new BrickLinkSubtractor($this->checkClass);
+        $this->partSubtractor = new RebrickableSubtractor($this->checkClass);
     }
 }
