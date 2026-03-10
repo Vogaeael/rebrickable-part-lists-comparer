@@ -7,7 +7,7 @@ use Vogaeael\RebrickablePartListsComparer\Model\Part;
 interface PartLoader
 {
     /**
-     * @return Part[]
+     * @return array<string, Part>
      */
     public function load(string $filePath): array;
 }
