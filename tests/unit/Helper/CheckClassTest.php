@@ -1,6 +1,6 @@
 <?php
 
-namespace Vogaeael\tests\Helper;
+namespace Vogaeael\tests\unit\Helper;
 
 use Exception;
 use PHPUnit\Framework\TestCase;
