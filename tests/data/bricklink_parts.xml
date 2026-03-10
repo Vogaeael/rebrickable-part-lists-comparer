@@ -1,0 +1,20 @@
+<INVENTORY>
+    <ITEM>
+        <ITEMTYPE>P</ITEMTYPE>
+        <ITEMID>30357</ITEMID>
+        <COLOR>86</COLOR>
+        <MINQTY>1</MINQTY>
+    </ITEM>
+    <ITEM>
+        <ITEMTYPE>P</ITEMTYPE>
+        <ITEMID>3023</ITEMID>
+        <COLOR>63</COLOR>
+        <MINQTY>2</MINQTY>
+    </ITEM>
+    <ITEM>
+        <ITEMTYPE>P</ITEMTYPE>
+        <ITEMID>75435stk01</ITEMID>
+        <COLOR>11</COLOR>
+        <MINQTY>1</MINQTY>
+    </ITEM>
+</INVENTORY>
