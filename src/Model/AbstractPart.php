@@ -4,14 +4,13 @@ namespace Vogaeael\RebrickablePartListsComparer\Model;
 
 abstract class AbstractPart implements Part
 {
-    protected int $quantity;
+    protected(set) int $quantity {
+        get {
+            return $this->quantity;
+        }
+    }
 
     public function __construct(int $quantity) {
         $this->quantity = $quantity;
-    }
-
-    public function getQuantity(): int
-    {
-        return $this->quantity;
     }
 }

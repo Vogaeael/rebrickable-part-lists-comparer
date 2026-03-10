@@ -14,19 +14,19 @@ class RebrickableSubtractor extends AbstractSubtractor
     public function subtract(Part $partA, ?Part $partB): Part
     {
         $this->checkClass->checkClass($partA, RebrickablePart::class);
-        $bQuantity = $partB?->getQuantity() ?? 0;
+        $bQuantity = $partB->quantity ?? 0;
         $bSpareQuantity = 0;
         if (null !== $partB) {
             $this->checkClass->checkClass($partB, RebrickablePart::class);
 
             /** @var RebrickablePart $partB */
-            $bSpareQuantity = $partB->getSpareQuantity();
+            $bSpareQuantity = $partB->spareQuantity;
         }
 
         /** @var RebrickablePart $partA */
-        $quantity = max(0, $partA->getQuantity() - $bQuantity);
-        $spareQuantity = max(0, $partA->getSpareQuantity() - $bSpareQuantity);
+        $quantity = max(0, $partA->quantity - $bQuantity);
+        $spareQuantity = max(0, $partA->spareQuantity - $bSpareQuantity);
 
-        return new RebrickablePart($partA->getPart(), $partA->getColor(), $quantity, $spareQuantity);
+        return new RebrickablePart($partA->part, $partA->color, $quantity, $spareQuantity);
     }
 }

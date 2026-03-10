@@ -11,5 +11,8 @@ abstract class AbstractWriter implements PartWriter
     ) {
     }
 
+    /**
+     * @inheritDoc
+     */
     abstract public function writePart(array $parts, string $filePath): void;
 }

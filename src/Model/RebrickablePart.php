@@ -4,8 +4,17 @@ namespace Vogaeael\RebrickablePartListsComparer\Model;
 
 class RebrickablePart extends PartWithSpareParts
 {
-    private string $part;
-    private string $color;
+    private(set) string $part {
+        get {
+            return $this->part;
+        }
+    }
+
+    private(set) string $color {
+        get {
+            return $this->color;
+        }
+    }
 
     public function __construct(
         string $part,
@@ -18,16 +27,6 @@ class RebrickablePart extends PartWithSpareParts
         $this->color = $color;
     }
 
-    public function getPart(): string
-    {
-        return $this->part;
-    }
-
-    public function getColor(): string
-    {
-        return $this->color;
-    }
-
     public function generateKey(): string
     {
         return sprintf('p:%s-c:%d', $this->part, $this->color);
@@ -35,7 +34,7 @@ class RebrickablePart extends PartWithSpareParts
 
     public function combine(RebrickablePart $part): void
     {
-        $this->quantity += $part->getQuantity();
-        $this->spareQuantity += $part->getSpareQuantity();
+        $this->quantity += $part->quantity;
+        $this->spareQuantity += $part->spareQuantity;
     }
 }

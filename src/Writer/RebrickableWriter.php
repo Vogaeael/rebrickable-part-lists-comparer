@@ -2,13 +2,12 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Writer;
 
-use Exception;
 use Vogaeael\RebrickablePartListsComparer\Model\RebrickablePart;
 
 class RebrickableWriter extends AbstractWriter
 {
     /**
-     * @throws Exception
+     * @inheritDoc
      */
     public function writePart(array $parts, string $filePath): void
     {
@@ -18,11 +17,11 @@ class RebrickableWriter extends AbstractWriter
             $this->checkClass->checkClass($part, RebrickablePart::class);
 
             /** @var RebrickablePart $part */
-            if ($part->getQuantity() !== 0) {
-                fputcsv($fp, [$part->getPart(), $part->getColor(), $part->getQuantity(), 'False'], ",", "");
+            if ($part->quantity !== 0) {
+                fputcsv($fp, [$part->part, $part->color, $part->quantity, 'False'], ",", "");
             }
-            if ($part->getSpareQuantity() !== 0) {
-                fputcsv($fp, [$part->getPart(), $part->getColor(), $part->getSpareQuantity(), 'True'], ",", "");
+            if ($part->spareQuantity !== 0) {
+                fputcsv($fp, [$part->part, $part->color, $part->spareQuantity, 'True'], ",", "");
             }
         }
 

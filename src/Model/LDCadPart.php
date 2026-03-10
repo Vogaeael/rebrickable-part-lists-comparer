@@ -4,9 +4,23 @@ namespace Vogaeael\RebrickablePartListsComparer\Model;
 
 class LDCadPart extends AbstractPart
 {
-    private string $identifier;
-    private string $color;
-    private string $sourceInv;
+    private(set) string $identifier {
+        get {
+            return $this->identifier;
+        }
+    }
+
+    private(set) string $color {
+        get {
+            return $this->color;
+        }
+    }
+
+    private(set) string $sourceInv {
+        get {
+            return $this->sourceInv;
+        }
+    }
 
     public function __construct(
         string $identifier,
@@ -18,21 +32,6 @@ class LDCadPart extends AbstractPart
         $this->identifier = $identifier;
         $this->color = $color;
         $this->sourceInv = $sourceInv;
-    }
-
-    public function getIdentifier(): string
-    {
-        return $this->identifier;
-    }
-
-    public function getColor(): string
-    {
-        return $this->color;
-    }
-
-    public function getSourceInv(): string
-    {
-        return $this->sourceInv;
     }
 
     public function generateKey(): string

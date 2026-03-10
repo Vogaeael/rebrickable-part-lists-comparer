@@ -2,13 +2,12 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Writer;
 
-use Exception;
 use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 
 class LDCadWriter extends AbstractWriter
 {
     /**
-     * @throws Exception
+     * @inheritDoc
      */
     public function writePart(array $parts, string $filePath): void
     {
@@ -19,15 +18,15 @@ class LDCadWriter extends AbstractWriter
         $content .= '<items>' . PHP_EOL;
         foreach ($parts as $part) {
             $this->checkClass->checkClass($part, LDCadPart::class);
-            if ($part->getQuantity() === 0) {
+            if ($part->quantity === 0) {
                 continue;
             }
 
             /** @var LDCadPart $part */
-            $content .= $part->getIdentifier() . '.dat:';
-            $content .= '[sourceInv=' . $part->getSourceInv() . '] ';
-            $content .= '[color=' . $part->getColor() . '] ';
-            $content .= '[count=' . $part->getQuantity() . ']' . PHP_EOL;
+            $content .= $part->identifier . '.dat:';
+            $content .= '[sourceInv=' . $part->sourceInv . '] ';
+            $content .= '[color=' . $part->color . '] ';
+            $content .= '[count=' . $part->quantity . ']' . PHP_EOL;
         }
 
         file_put_contents($filePath, $content);

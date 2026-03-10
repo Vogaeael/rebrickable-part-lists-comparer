@@ -4,17 +4,16 @@ namespace Vogaeael\RebrickablePartListsComparer\Model;
 
 class LegoPickABrickPart extends AbstractPart
 {
-    private string $elementId;
+    private(set) string $elementId {
+        get {
+            return $this->elementId;
+        }
+    }
 
     public function __construct(string $elementId, int $quantity)
     {
         parent::__construct($quantity);
         $this->elementId = $elementId;
-    }
-
-    public function getElementId(): string
-    {
-        return $this->elementId;
     }
 
     public function generateKey(): string
