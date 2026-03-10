@@ -11,9 +11,9 @@ use Vogaeael\RebrickablePartListsComparer\Writer\PartWriter;
 abstract class AbstractProvider implements Provider
 {
     protected static Types $KEY;
-    protected PartLoader $partLoader;
-    protected PartWriter $partWriter;
-    protected PartSubtractor $partSubtractor;
+    protected ?PartLoader $partLoader = null;
+    protected ?PartWriter $partWriter = null;
+    protected ?PartSubtractor $partSubtractor = null;
 
     public function __construct(
         protected readonly CheckClass $checkClass
