@@ -2,6 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer;
 
+use Exception;
 use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\Part;
 use Vogaeael\RebrickablePartListsComparer\Provider\ProviderList;
@@ -18,6 +19,9 @@ class Comparer
         $this->providerList = new ProviderList($this->checkClass);
     }
 
+    /**
+     * @throws Exception
+     */
     public function subtractFiles(Types $listType, string $filePathA, string $filePathB, string $filePathResult): void
     {
         $provider = $this->providerList->getProvider($listType);
