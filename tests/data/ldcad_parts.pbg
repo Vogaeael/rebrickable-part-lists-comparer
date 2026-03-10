@@ -1,0 +1,9 @@
+[options]
+kind=basic
+caption=Test Case List
+sortOn=description
+
+<items>
+99781.dat:[sourceInv=parts] [color=72] [count=5]
+7504pr0001.dat:[sourceInv=parts] [color=0] [count=2]
+3010.dat:[sourceInv=parts] [color=15] [count=12]
