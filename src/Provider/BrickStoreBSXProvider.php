@@ -3,7 +3,7 @@
 namespace Vogaeael\RebrickablePartListsComparer\Provider;
 
 use Vogaeael\RebrickablePartListsComparer\Loader\BrickStoreBSXLoader;
-use Vogaeael\RebrickablePartListsComparer\Subtractor\BrickLinkSubtractor;
+use Vogaeael\RebrickablePartListsComparer\Subtractor\BrickStoreBSXSubtractor;
 use Vogaeael\RebrickablePartListsComparer\Types;
 use Vogaeael\RebrickablePartListsComparer\Writer\BrickStoreBSXWriter;
 
@@ -23,6 +23,6 @@ class BrickStoreBSXProvider extends AbstractProvider
 
     protected function createSubtractor(): void
     {
-        $this->partSubtractor = new BrickLinkSubtractor($this->checkClass);
+        $this->partSubtractor = new BrickStoreBSXSubtractor($this->checkClass);
     }
 }
