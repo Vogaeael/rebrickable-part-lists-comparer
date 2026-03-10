@@ -16,7 +16,7 @@ class BrickStoreBSXLoader extends AbstractLoader
 
         $parts = [];
         $parentElement = simplexml_load_file($filePath);
-        foreach ($parentElement['BrickStoreXml']['Inventory']->children() as $item) {
+        foreach ($parentElement->children()[0] as $item) {
             $itemType = (string) $item['ItemTypeID'];
             $itemId = (string) $item['ItemID'];
             $colorId = (string) $item['ColorID'];

@@ -16,7 +16,7 @@ class BrickLinkLoader extends AbstractLoader
 
         $parts = [];
         $parentElement = simplexml_load_file($filePath);
-        foreach ($parentElement['INVENTORY']->children() as $item) {
+        foreach ($parentElement->children() as $item) {
             $itemType = (string) $item['ITEMTYPE'];
             $itemId = (string) $item['ITEMID'];
             $colorId = (string) $item['COLORID'];
