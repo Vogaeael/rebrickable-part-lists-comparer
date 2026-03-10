@@ -20,12 +20,12 @@ class BrickLinkWriter extends AbstractWriter
             }
 
             /** @var BrickLinkPart $part */
-            $xml .= '\t<ITEM>' . PHP_EOL;
-            $xml .= '\t\t<ITEMTYPE>' . $part->getItemType() . '</ITEMTYPE>' . PHP_EOL;
-            $xml .= '\t\t<ITEMID>' . $part->getItemId() . '</ITEMID>' . PHP_EOL;
-            $xml .= '\t\t<COLOR>' . $part->getColorId() . '</COLOR>' . PHP_EOL;
-            $xml .= '\t\t<MINQTY>' . $part->getQuantity() . '</MINQTY>' . PHP_EOL;
-            $xml .= '\t</ITEM>' . PHP_EOL;
+            $xml .= "\t<ITEM>" . PHP_EOL;
+            $xml .= "\t\t<ITEMTYPE>" . $part->getItemType() . '</ITEMTYPE>' . PHP_EOL;
+            $xml .= "\t\t<ITEMID>" . $part->getItemId() . '</ITEMID>' . PHP_EOL;
+            $xml .= "\t\t<COLOR>" . $part->getColorId() . '</COLOR>' . PHP_EOL;
+            $xml .= "\t\t<MINQTY>" . $part->getQuantity() . '</MINQTY>' . PHP_EOL;
+            $xml .= "\t</ITEM>" . PHP_EOL;
         }
 
         $xml .= '</INVENTORY>';
