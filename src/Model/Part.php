@@ -4,7 +4,7 @@ namespace Vogaeael\RebrickablePartListsComparer\Model;
 
 interface Part
 {
-    protected(set) int $quantity {
+    public int $quantity {
         get;
     }
     public function generateKey(): string;
