@@ -29,7 +29,7 @@ class RebrickablePart extends PartWithSpareParts
 
     public function generateKey(): string
     {
-        return sprintf('p:%s-c:%d', $this->part, $this->color);
+        return sprintf('p:%s-c:%s', $this->part, $this->color);
     }
 
     public function combine(RebrickablePart $part): void
