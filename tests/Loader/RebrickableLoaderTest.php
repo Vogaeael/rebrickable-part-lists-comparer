@@ -8,6 +8,15 @@ use Vogaeael\RebrickablePartListsComparer\Model\RebrickablePart;
 
 class RebrickableLoaderTest extends TestCase
 {
+    public function testDoesFileExistOrException(): void
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('File not found: fileDoesNotExist.txt');
+
+        $load = new RebrickableLoader();
+        $load->load('fileDoesNotExist.txt');
+    }
+
     public function testLoad(): void
     {
         $loader = new RebrickableLoader();

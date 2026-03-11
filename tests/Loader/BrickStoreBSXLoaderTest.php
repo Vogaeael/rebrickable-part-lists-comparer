@@ -8,6 +8,15 @@ use Vogaeael\RebrickablePartListsComparer\Model\BrickStoreBSXPart;
 
 class BrickStoreBSXLoaderTest extends TestCase
 {
+    public function testDoesFileExistOrException(): void
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('File not found: fileDoesNotExist.txt');
+
+        $load = new BrickStoreBSXLoader();
+        $load->load('fileDoesNotExist.txt');
+    }
+
     public function testLoad(): void
     {
         $loader = new BrickStoreBSXLoader();

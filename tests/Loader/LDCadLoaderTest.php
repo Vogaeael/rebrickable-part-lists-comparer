@@ -8,6 +8,15 @@ use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 
 class LDCadLoaderTest extends TestCase
 {
+    public function testDoesFileExistOrException(): void
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('File not found: fileDoesNotExist.txt');
+
+        $load = new LDCadLoader();
+        $load->load('fileDoesNotExist.txt');
+    }
+
     public function testLoad(): void
     {
         $loader = new LDCadLoader();

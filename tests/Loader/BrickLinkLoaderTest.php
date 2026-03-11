@@ -8,6 +8,14 @@ use Vogaeael\RebrickablePartListsComparer\Model\BrickLinkPart;
 
 class BrickLinkLoaderTest extends TestCase
 {
+    public function testDoesFileExistOrException(): void
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('File not found: fileDoesNotExist.txt');
+
+        $load = new BrickLinkLoader();
+        $load->load('fileDoesNotExist.txt');
+    }
     public function testLoad(): void
     {
         $loader = new BrickLinkLoader();
