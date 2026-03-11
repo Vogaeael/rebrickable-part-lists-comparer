@@ -1,3 +1,10 @@
+# Third Party Plugins
 /vendor/
+
+# Data
 /data/
+
+# Tests
 /.phpunit.cache
+/coverage.txt
+/coverage-report

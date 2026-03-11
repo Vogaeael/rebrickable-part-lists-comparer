@@ -7,6 +7,12 @@
          displayDetailsOnTestsThatTriggerWarnings="true"
          displayDetailsOnPhpunitDeprecations="true"
          cacheDirectory=".phpunit.cache">
+    <source>
+        <include>
+            <directory suffix=".php">src/</directory>
+        </include>
+    </source>
+
     <testsuites>
         <testsuite name="unit">
             <directory>tests/unit</directory>
@@ -16,4 +22,11 @@
             <directory>tests/integration</directory>
         </testsuite>
     </testsuites>
+
+    <coverage>
+        <report>
+            <html outputDirectory="coverage-report" />
+            <text outputFile="coverage.txt" showUncoveredFiles="true" />
+        </report>
+    </coverage>
 </phpunit>
