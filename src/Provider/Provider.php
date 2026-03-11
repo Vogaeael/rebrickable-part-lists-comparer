@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Vogaeael\RebrickablePartListsComparer\Provider;
 
@@ -15,5 +15,5 @@ interface Provider
 
     public function getSubtractor(): PartSubtractor;
 
-    public function getKey(): Types;
+    public static function getKey(): Types;
 }

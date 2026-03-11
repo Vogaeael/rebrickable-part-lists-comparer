@@ -53,7 +53,7 @@ abstract class AbstractProvider implements Provider
 
     abstract protected function createSubtractor(): void;
 
-    public function getKey(): Types
+    public static function getKey(): Types
     {
         return static::$KEY;
     }
