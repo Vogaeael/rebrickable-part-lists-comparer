@@ -2,11 +2,9 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Model;
 
-interface Part
+interface InterfacePartWithSpareParts extends Part
 {
-    public int $quantity {
+    public int $spareQuantity {
         get;
     }
-
-    public function generateKey(): string;
 }

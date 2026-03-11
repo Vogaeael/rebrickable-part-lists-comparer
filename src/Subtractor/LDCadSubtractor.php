@@ -3,6 +3,7 @@
 namespace Vogaeael\RebrickablePartListsComparer\Subtractor;
 
 use Exception;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceLDCadPart;
 use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 use Vogaeael\RebrickablePartListsComparer\Model\Part;
 
@@ -13,10 +14,10 @@ class LDCadSubtractor extends AbstractSubtractor
      */
     public function subtract(Part $partA, ?Part $partB): Part
     {
-        $this->checkClass->checkClass($partA, LDCadPart::class);
+        $this->checkClass->checkClass($partA, InterfaceLDCadPart::class);
         $bQuantity = $partB->quantity ?? 0;
 
-        /** @var LDCadPart $partA */
+        /** @var InterfaceLDCadPart $partA */
         $quantity = max(0, $partA->quantity - $bQuantity);
 
         return new LDCadPart($partA->identifier, $partA->color, $partA->sourceInv, $quantity);

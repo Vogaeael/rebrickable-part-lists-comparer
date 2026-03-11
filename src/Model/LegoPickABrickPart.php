@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Model;
 
-class LegoPickABrickPart extends AbstractPart
+class LegoPickABrickPart extends AbstractPart implements InterfaceLegoPickABrickPart
 {
     private(set) string $elementId {
         get {

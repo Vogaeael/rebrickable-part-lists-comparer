@@ -3,6 +3,7 @@
 namespace Vogaeael\RebrickablePartListsComparer\Subtractor;
 
 use Exception;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceLegoPickABrickPart;
 use Vogaeael\RebrickablePartListsComparer\Model\LegoPickABrickPart;
 use Vogaeael\RebrickablePartListsComparer\Model\Part;
 
@@ -13,10 +14,10 @@ class LegoPickABrickSubtractor extends AbstractSubtractor
      */
     public function subtract(Part $partA, ?Part $partB): Part
     {
-        $this->checkClass->checkClass($partA, LegoPickABrickPart::class);
+        $this->checkClass->checkClass($partA, InterfaceLegoPickABrickPart::class);
         $bQuantity = $partB->quantity ?? 0;
 
-        /** @var LegoPickABrickPart $partA */
+        /** @var InterfaceLegoPickABrickPart $partA */
         $quantity = max(0, $partA->quantity - $bQuantity);
 
         return new LegoPickABrickPart($partA->elementId, $quantity);

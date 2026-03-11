@@ -3,6 +3,7 @@
 namespace Vogaeael\RebrickablePartListsComparer\Subtractor;
 
 use Exception;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceRebrickablePart;
 use Vogaeael\RebrickablePartListsComparer\Model\Part;
 use Vogaeael\RebrickablePartListsComparer\Model\RebrickablePart;
 
@@ -13,17 +14,17 @@ class RebrickableSubtractor extends AbstractSubtractor
      */
     public function subtract(Part $partA, ?Part $partB): Part
     {
-        $this->checkClass->checkClass($partA, RebrickablePart::class);
+        $this->checkClass->checkClass($partA, InterfaceRebrickablePart::class);
         $bQuantity = $partB->quantity ?? 0;
         $bSpareQuantity = 0;
         if (null !== $partB) {
-            $this->checkClass->checkClass($partB, RebrickablePart::class);
+            $this->checkClass->checkClass($partB, InterfaceRebrickablePart::class);
 
-            /** @var RebrickablePart $partB */
+            /** @var InterfaceRebrickablePart $partB */
             $bSpareQuantity = $partB->spareQuantity;
         }
 
-        /** @var RebrickablePart $partA */
+        /** @var InterfaceRebrickablePart $partA */
         $quantity = max(0, $partA->quantity - $bQuantity);
         $spareQuantity = max(0, $partA->spareQuantity - $bSpareQuantity);
 

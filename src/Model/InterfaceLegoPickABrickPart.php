@@ -2,11 +2,9 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Model;
 
-interface Part
+interface InterfaceLegoPickABrickPart extends Part
 {
-    public int $quantity {
+    public string $elementId {
         get;
     }
-
-    public function generateKey(): string;
 }

@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Model;
 
-class LDCadPart extends AbstractPart
+class LDCadPart extends AbstractPart implements InterfaceLDCadPart
 {
     private(set) string $identifier {
         get {

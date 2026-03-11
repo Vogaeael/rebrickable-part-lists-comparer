@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Model;
 
-class BrickStoreBSXPart extends AbstractPart
+class BrickStoreBSXPart extends AbstractPart implements InterfaceBrickStoreBSXPart
 {
     private(set) string $itemTypeId {
         get {

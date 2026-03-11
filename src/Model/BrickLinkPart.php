@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Model;
 
-class BrickLinkPart extends AbstractPart
+class BrickLinkPart extends AbstractPart implements InterfaceBrickLinkPart
 {
     private(set) string $itemType {
         get {

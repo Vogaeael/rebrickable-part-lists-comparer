@@ -4,6 +4,7 @@ namespace Vogaeael\RebrickablePartListsComparer\Subtractor;
 
 use Exception;
 use Vogaeael\RebrickablePartListsComparer\Model\BrickStoreBSXPart;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceBrickStoreBSXPart;
 use Vogaeael\RebrickablePartListsComparer\Model\Part;
 
 class BrickStoreBSXSubtractor extends AbstractSubtractor
@@ -13,10 +14,10 @@ class BrickStoreBSXSubtractor extends AbstractSubtractor
      */
     public function subtract(Part $partA, ?Part $partB): Part
     {
-        $this->checkClass->checkClass($partA, BrickStoreBSXPart::class);
+        $this->checkClass->checkClass($partA, InterfaceBrickStoreBSXPart::class);
         $bQuantity = $partB->quantity ?? 0;
 
-        /** @var BrickStoreBSXPart $partA */
+        /** @var InterfaceBrickStoreBSXPart $partA */
         $quantity = max(0, $partA->quantity - $bQuantity);
 
         return new BrickStoreBSXPart($partA->itemTypeId, $partA->itemId, $partA->colorId, $quantity);

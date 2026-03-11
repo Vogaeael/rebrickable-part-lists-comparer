@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Model;
 
-class RebrickablePart extends PartWithSpareParts
+class RebrickablePart extends PartWithSpareParts implements InterfaceRebrickablePart
 {
     private(set) string $part {
         get {
@@ -32,7 +32,7 @@ class RebrickablePart extends PartWithSpareParts
         return sprintf('p:%s-c:%s', $this->part, $this->color);
     }
 
-    public function combine(RebrickablePart $part): void
+    public function combine(InterfaceRebrickablePart $part): void
     {
         $this->quantity += $part->quantity;
         $this->spareQuantity += $part->spareQuantity;
