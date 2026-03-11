@@ -36,6 +36,6 @@ class LDCadPart extends AbstractPart
 
     public function generateKey(): string
     {
-        return sprintf('i:%s-c:%d', $this->identifier, $this->color);
+        return sprintf('i:%s-c:%s', $this->identifier, $this->color);
     }
 }
