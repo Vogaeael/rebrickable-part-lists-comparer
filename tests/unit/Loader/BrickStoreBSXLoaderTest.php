@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Vogaeael\tests\Loader;
+namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Loader;
 
 use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Loader\BrickStoreBSXLoader;
@@ -20,7 +20,7 @@ class BrickStoreBSXLoaderTest extends TestCase
     public function testLoad(): void
     {
         $loader = new BrickStoreBSXLoader();
-        $actual = $loader->load(__DIR__ . '/../data/brickstore_parts.bsx');
+        $actual = $loader->load(__DIR__ . '/../../data/brickstore_parts.bsx');
 
         $this->assertIsArray($actual);
         $this->assertCount(3, $actual);

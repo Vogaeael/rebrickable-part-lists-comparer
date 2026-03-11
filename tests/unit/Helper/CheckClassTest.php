@@ -1,6 +1,6 @@
 <?php
 
-namespace Vogaeael\tests\unit\Helper;
+namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Helper;
 
 use Exception;
 use PHPUnit\Framework\TestCase;

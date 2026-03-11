@@ -1,6 +1,6 @@
 <?php
 
-namespace Vogaeael\tests\Model;
+namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Model;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;

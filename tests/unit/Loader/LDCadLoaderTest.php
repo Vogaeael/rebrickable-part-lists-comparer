@@ -1,37 +1,37 @@
 <?php declare(strict_types=1);
 
-namespace Vogaeael\tests\Loader;
+namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Loader;
 
 use PHPUnit\Framework\TestCase;
-use Vogaeael\RebrickablePartListsComparer\Loader\BrickLinkLoader;
-use Vogaeael\RebrickablePartListsComparer\Model\BrickLinkPart;
+use Vogaeael\RebrickablePartListsComparer\Loader\LDCadLoader;
+use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 
-class BrickLinkLoaderTest extends TestCase
+class LDCadLoaderTest extends TestCase
 {
     public function testDoesFileExistOrException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('File not found: fileDoesNotExist.txt');
 
-        $load = new BrickLinkLoader();
+        $load = new LDCadLoader();
         $load->load('fileDoesNotExist.txt');
     }
 
     public function testLoad(): void
     {
-        $loader = new BrickLinkLoader();
-        $actual = $loader->load(__DIR__ . '/../data/bricklink_parts.xml');
+        $loader = new LDCadLoader();
+        $actual = $loader->load(__DIR__ . '/../../data/ldcad_parts.pbg');
 
         $this->assertIsArray($actual);
         $this->assertCount(3, $actual);
 
-        $part = new BrickLinkPart('P', '30357', '86', 1);
+        $part = new LDCadPart('99781', '72', 'parts', 5);
         $this->assertContainsEquals($part, $actual);
 
-        $part = new BrickLinkPart('P', '3023', '63', 2);
+        $part = new LDCadPart('7504pr0001', '0', 'parts', 2);
         $this->assertContainsEquals($part, $actual);
 
-        $part = new BrickLinkPart('P', '75435stk01', '11', 1);
+        $part = new LDCadPart('3010', '15', 'parts', 12);
         $this->assertContainsEquals($part, $actual);
     }
 }

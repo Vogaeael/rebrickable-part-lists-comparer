@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Vogaeael\tests\Loader;
+namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Loader;
 
 use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Loader\RebrickableLoader;
@@ -20,7 +20,7 @@ class RebrickableLoaderTest extends TestCase
     public function testLoad(): void
     {
         $loader = new RebrickableLoader();
-        $actual = $loader->load(__DIR__ . '/../data/rebrickable_parts.csv');
+        $actual = $loader->load(__DIR__ . '/../../data/rebrickable_parts.csv');
 
         $this->assertIsArray($actual);
         $this->assertCount(3, $actual);

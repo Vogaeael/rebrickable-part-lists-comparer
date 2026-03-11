@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Vogaeael\tests\Loader;
+namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Loader;
 
 use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Loader\LegoPickABrickLoader;
@@ -20,7 +20,7 @@ class LegoPickABrickLoaderTest extends TestCase
     public function testLoad(): void
     {
         $loader = new LegoPickABrickLoader();
-        $actual = $loader->load(__DIR__ . '/../data/lego_pab_parts.csv');
+        $actual = $loader->load(__DIR__ . '/../../data/lego_pab_parts.csv');
 
         $this->assertIsArray($actual);
         $this->assertCount(3, $actual);

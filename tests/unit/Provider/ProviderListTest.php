@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Vogaeael\tests\Provider;
+namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Provider;
 
 use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
