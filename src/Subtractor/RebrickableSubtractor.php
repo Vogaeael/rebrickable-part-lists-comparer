@@ -12,7 +12,7 @@ class RebrickableSubtractor extends AbstractSubtractor
     /**
      * @throws Exception
      */
-    public function subtract(Part $partA, ?Part $partB): Part
+    public function subtract(Part $partA, ?Part $partB): InterfaceRebrickablePart
     {
         $this->checkClass->checkClass($partA, InterfaceRebrickablePart::class);
         $bQuantity = $partB->quantity ?? 0;

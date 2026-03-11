@@ -12,7 +12,7 @@ class LDCadSubtractor extends AbstractSubtractor
     /**
      * @throws Exception
      */
-    public function subtract(Part $partA, ?Part $partB): Part
+    public function subtract(Part $partA, ?Part $partB): InterfaceLDCadPart
     {
         $this->checkClass->checkClass($partA, InterfaceLDCadPart::class);
         $bQuantity = $partB->quantity ?? 0;

@@ -12,7 +12,7 @@ class BrickStoreBSXSubtractor extends AbstractSubtractor
     /**
      * @throws Exception
      */
-    public function subtract(Part $partA, ?Part $partB): Part
+    public function subtract(Part $partA, ?Part $partB): InterfaceBrickStoreBSXPart
     {
         $this->checkClass->checkClass($partA, InterfaceBrickStoreBSXPart::class);
         $bQuantity = $partB->quantity ?? 0;
