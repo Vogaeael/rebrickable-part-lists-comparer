@@ -8,7 +8,10 @@ use Vogaeael\RebrickablePartListsComparer\Model\BrickLinkPart;
 
 class BrickLinkPartTest extends TestCase
 {
-    public static function additionProvider(): array
+    /**
+     * @return array<string, array<string, int | string>>[]
+     */
+    public static function paramsAndResultsProvider(): array
     {
         return [
             [
@@ -59,7 +62,7 @@ class BrickLinkPartTest extends TestCase
         ];
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetQuantity(array $params, array $results): void
     {
         $part = new BrickLinkPart(...$params);
@@ -67,7 +70,7 @@ class BrickLinkPartTest extends TestCase
         $this->assertSame($results['quantity'], $part->quantity);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetQuantity(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -76,7 +79,7 @@ class BrickLinkPartTest extends TestCase
         $part->quantity = 1;
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetItemType(array $params, array $results): void
     {
         $part = new BrickLinkPart(...$params);
@@ -84,7 +87,7 @@ class BrickLinkPartTest extends TestCase
         $this->assertSame($results['itemType'], $part->itemType);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetItemType(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -93,7 +96,7 @@ class BrickLinkPartTest extends TestCase
         $part->itemType = 'test';
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetItemId(array $params, array $results): void
     {
         $part = new BrickLinkPart(...$params);
@@ -101,7 +104,7 @@ class BrickLinkPartTest extends TestCase
         $this->assertSame($results['itemId'], $part->itemId);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetItemId(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -110,7 +113,7 @@ class BrickLinkPartTest extends TestCase
         $part->itemId = 'test';
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetColorId(array $params, array $results): void
     {
         $part = new BrickLinkPart(...$params);
@@ -118,7 +121,7 @@ class BrickLinkPartTest extends TestCase
         $this->assertSame($results['colorId'], $part->colorId);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetColorId(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -127,7 +130,7 @@ class BrickLinkPartTest extends TestCase
         $part->colorId = 'test';
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGenerateKey(array $params, array $results): void
     {
         $part = new BrickLinkPart(...$params);
