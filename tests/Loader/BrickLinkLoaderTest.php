@@ -16,6 +16,7 @@ class BrickLinkLoaderTest extends TestCase
         $load = new BrickLinkLoader();
         $load->load('fileDoesNotExist.txt');
     }
+
     public function testLoad(): void
     {
         $loader = new BrickLinkLoader();
