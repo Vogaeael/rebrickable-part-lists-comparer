@@ -16,7 +16,9 @@ class LDCadWriterTest extends TestCase
         $parts[$part->generateKey()] = $part;
         $part = new LDCadPart('identifierB', 'colorIdB', 'sourceInvB', 453);
         $parts[$part->generateKey()] = $part;
-        $part = new LDCadPart('identifierC', 'colorIdC', 'sourceInvC', 26);
+        $part = new LDCadPart('identifierC', 'colorIdC', 'sourceInvC', 0);
+        $parts[$part->generateKey()] = $part;
+        $part = new LDCadPart('identifierD', 'colorIdD', 'sourceInvD', 26);
         $parts[$part->generateKey()] = $part;
 
         $filePath = __DIR__ . '/../../data/write/ldcad_parts.pbg';
@@ -31,7 +33,7 @@ class LDCadWriterTest extends TestCase
         $expected .= '<items>' . PHP_EOL;
         $expected .= 'identifierA.dat:[sourceInv=sourceInvA] [color=colorIdA] [count=3]' . PHP_EOL;
         $expected .= 'identifierB.dat:[sourceInv=sourceInvB] [color=colorIdB] [count=453]' . PHP_EOL;
-        $expected .= 'identifierC.dat:[sourceInv=sourceInvC] [color=colorIdC] [count=26]' . PHP_EOL;
+        $expected .= 'identifierD.dat:[sourceInv=sourceInvD] [color=colorIdD] [count=26]' . PHP_EOL;
 
         $actual = file_get_contents($filePath);
         $this->assertEquals($expected, $actual);

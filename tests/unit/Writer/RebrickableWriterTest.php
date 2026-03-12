@@ -16,7 +16,7 @@ class RebrickableWriterTest extends TestCase
         $parts[$part->generateKey()] = $part;
         $part = new RebrickablePart('partB', 'colorB', 453, 12);
         $parts[$part->generateKey()] = $part;
-        $part = new RebrickablePart('partC', 'colorC', 26, 4);
+        $part = new RebrickablePart('partC', 'colorC', 0, 4);
         $parts[$part->generateKey()] = $part;
 
         $filePath = __DIR__ . '/../../data/write/rebrickable_parts.csv';
@@ -28,7 +28,6 @@ class RebrickableWriterTest extends TestCase
         $expected .= 'partA,colorA,3,False' . PHP_EOL;
         $expected .= 'partB,colorB,453,False' . PHP_EOL;
         $expected .= 'partB,colorB,12,True' . PHP_EOL;
-        $expected .= 'partC,colorC,26,False' . PHP_EOL;
         $expected .= 'partC,colorC,4,True' . PHP_EOL;
 
         $actual = file_get_contents($filePath);

@@ -16,7 +16,9 @@ class BrickLinkWriterTest extends TestCase
         $parts[$part->generateKey()] = $part;
         $part = new BrickLinkPart('itemTypeB', 'itemIdB', 'colorIdB', 453);
         $parts[$part->generateKey()] = $part;
-        $part = new BrickLinkPart('itemTypeC', 'itemIdC', 'colorIdC', 26);
+        $part = new BrickLinkPart('itemTypeC', 'itemIdC', 'colorIdC', 0);
+        $parts[$part->generateKey()] = $part;
+        $part = new BrickLinkPart('itemTypeD', 'itemIdD', 'colorIdD', 26);
         $parts[$part->generateKey()] = $part;
 
         $filePath = __DIR__ . '/../../data/write/brick_link_parts.xml';
@@ -38,9 +40,9 @@ class BrickLinkWriterTest extends TestCase
         $expected .= "\t\t<MINQTY>453</MINQTY>" . PHP_EOL;
         $expected .= "\t</ITEM>" . PHP_EOL;
         $expected .= "\t<ITEM>" . PHP_EOL;
-        $expected .= "\t\t<ITEMTYPE>itemTypeC</ITEMTYPE>" . PHP_EOL;
-        $expected .= "\t\t<ITEMID>itemIdC</ITEMID>" . PHP_EOL;
-        $expected .= "\t\t<COLOR>colorIdC</COLOR>" . PHP_EOL;
+        $expected .= "\t\t<ITEMTYPE>itemTypeD</ITEMTYPE>" . PHP_EOL;
+        $expected .= "\t\t<ITEMID>itemIdD</ITEMID>" . PHP_EOL;
+        $expected .= "\t\t<COLOR>colorIdD</COLOR>" . PHP_EOL;
         $expected .= "\t\t<MINQTY>26</MINQTY>" . PHP_EOL;
         $expected .= "\t</ITEM>" . PHP_EOL;
         $expected .= "</INVENTORY>";

@@ -16,7 +16,9 @@ class LegoPickABrickWriterTest extends TestCase
         $parts[$part->generateKey()] = $part;
         $part = new LegoPickABrickPart('elementIdB', 453);
         $parts[$part->generateKey()] = $part;
-        $part = new LegoPickABrickPart('elementIdC', 26);
+        $part = new LegoPickABrickPart('elementIdC', 0);
+        $parts[$part->generateKey()] = $part;
+        $part = new LegoPickABrickPart('elementIdD', 26);
         $parts[$part->generateKey()] = $part;
 
         $filePath = __DIR__ . '/../../data/write/lego_pab_parts.csv';
@@ -27,7 +29,7 @@ class LegoPickABrickWriterTest extends TestCase
         $expected = 'elementId,quantity' . PHP_EOL;
         $expected .= 'elementIdA,3' . PHP_EOL;
         $expected .= 'elementIdB,453' . PHP_EOL;
-        $expected .= 'elementIdC,26' . PHP_EOL;
+        $expected .= 'elementIdD,26' . PHP_EOL;
 
         $actual = file_get_contents($filePath);
         $this->assertEquals($expected, $actual);

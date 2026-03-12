@@ -16,7 +16,9 @@ class BrickStoreBSXWriterTest extends TestCase
         $parts[$part->generateKey()] = $part;
         $part = new BrickStoreBSXPart('itemTypeB', 'itemIdB', 'colorIdB', 453);
         $parts[$part->generateKey()] = $part;
-        $part = new BrickStoreBSXPart('itemTypeC', 'itemIdC', 'colorIdC', 26);
+        $part = new BrickStoreBSXPart('itemTypeC', 'itemIdC', 'colorIdC', 0);
+        $parts[$part->generateKey()] = $part;
+        $part = new BrickStoreBSXPart('itemTypeD', 'itemIdD', 'colorIdD', 26);
         $parts[$part->generateKey()] = $part;
 
         $filePath = __DIR__ . '/../../data/write/brick_store_parts.bsx';
@@ -35,9 +37,9 @@ class BrickStoreBSXWriterTest extends TestCase
         $expected .= '<ColorID>colorIdB</ColorID>';;
         $expected .= '<Qty>453</Qty>';
         $expected .= '</Item><Item>';
-        $expected .= '<ItemTypeID>itemTypeC</ItemTypeID>';
-        $expected .= '<ItemID>itemIdC</ItemID>';
-        $expected .= '<ColorID>colorIdC</ColorID>';
+        $expected .= '<ItemTypeID>itemTypeD</ItemTypeID>';
+        $expected .= '<ItemID>itemIdD</ItemID>';
+        $expected .= '<ColorID>colorIdD</ColorID>';
         $expected .= '<Qty>26</Qty>';
         $expected .= '</Item></Inventory></BrickStoreXML>';
 
