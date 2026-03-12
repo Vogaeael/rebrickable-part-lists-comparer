@@ -13,5 +13,3 @@ $resultFile = $argv[4];
 $comparer = new Comparer();
 $type = Types::from($typeString);
 $comparer->subtractFiles($type, $fileMinuend, $fileSubtrahend, $resultFile);
-
-die('SOME INFOS');
