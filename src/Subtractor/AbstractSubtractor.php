@@ -12,5 +12,5 @@ abstract class AbstractSubtractor implements PartSubtractor
     ) {
     }
 
-    abstract public function subtract(Part $partA, ?Part $partB): Part;
+    abstract public function subtract(Part $partMinuend, ?Part $partSubtrahend): Part;
 }

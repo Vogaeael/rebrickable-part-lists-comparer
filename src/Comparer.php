@@ -22,15 +22,15 @@ class Comparer
     /**
      * @throws Exception
      */
-    public function subtractFiles(Types $listType, string $filePathA, string $filePathB, string $filePathResult): void
+    public function subtractFiles(Types $listType, string $filePathMinuend, string $filePathSubtrahend, string $filePathResult): void
     {
         $provider = $this->providerList->getProvider($listType);
         $loader = $provider->getLoader();
 
-        $partsA = $loader->load($filePathA);
-        $partsB = $loader->load($filePathB);
+        $partsMinuend = $loader->load($filePathMinuend);
+        $partsSubtrahend = $loader->load($filePathSubtrahend);
 
-        $partsResult = $this->subtractList($listType, $partsA, $partsB);
+        $partsResult = $this->subtractList($listType, $partsMinuend, $partsSubtrahend);
 
         $writer = $provider->getWriter();
         $writer->writePart($partsResult, $filePathResult);
@@ -38,32 +38,32 @@ class Comparer
 
     /**
      * @param Types $listType
-     * @param Part[] $partsA
-     * @param Part[] $partsB
+     * @param Part[] $partsMinuend
+     * @param Part[] $partsSubtrahend
      *
      * @return Part[]
      */
-    public function subtractList(Types $listType, array $partsA, array $partsB): array
+    public function subtractList(Types $listType, array $partsMinuend, array $partsSubtrahend): array
     {
         $provider = $this->providerList->getProvider($listType);
 
-        return $this->compareList($provider->getSubtractor(), $partsA, $partsB);
+        return $this->compareList($provider->getSubtractor(), $partsMinuend, $partsSubtrahend);
     }
 
     /**
-     * @param Part[] $partsA
-     * @param Part[] $partsB
+     * @param Part[] $partsMinuend
+     * @param Part[] $partsSubtrahend
      *
      * @return Part[]
      */
-    private function compareList(PartSubtractor $partSubtractor, array $partsA, array $partsB): array
+    private function compareList(PartSubtractor $partSubtractor, array $partsMinuend, array $partsSubtrahend): array
     {
         $resultParts = [];
 
-        foreach ($partsA as $partA) {
-            $partB = $partsB[$partA->generateKey()] ?? null;
+        foreach ($partsMinuend as $partMinuend) {
+            $partB = $partsSubtrahend[$partMinuend->generateKey()] ?? null;
 
-            $substraction = $partSubtractor->subtract($partA, $partB);
+            $substraction = $partSubtractor->subtract($partMinuend, $partB);
 
             $resultParts[$substraction->generateKey()] = $substraction;
         }

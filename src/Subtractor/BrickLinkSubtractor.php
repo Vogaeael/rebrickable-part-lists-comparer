@@ -12,14 +12,14 @@ class BrickLinkSubtractor extends AbstractSubtractor
     /**
      * @throws Exception
      */
-    public function subtract(Part $partA, ?Part $partB): InterfaceBrickLinkPart
+    public function subtract(Part $partMinuend, ?Part $partSubtrahend): InterfaceBrickLinkPart
     {
-        $this->checkClass->checkClass($partA, InterfaceBrickLinkPart::class);
-        $bQuantity = $partB->quantity ?? 0;
+        $this->checkClass->checkClass($partMinuend, InterfaceBrickLinkPart::class);
+        $bQuantity = $partSubtrahend->quantity ?? 0;
 
-        /** @var InterfaceBrickLinkPart $partA */
-        $quantity = max(0, $partA->quantity - $bQuantity);
+        /** @var InterfaceBrickLinkPart $partMinuend */
+        $quantity = max(0, $partMinuend->quantity - $bQuantity);
 
-        return new BrickLinkPart($partA->itemType, $partA->itemId, $partA->colorId, $quantity);
+        return new BrickLinkPart($partMinuend->itemType, $partMinuend->itemId, $partMinuend->colorId, $quantity);
     }
 }

@@ -12,22 +12,22 @@ class RebrickableSubtractor extends AbstractSubtractor
     /**
      * @throws Exception
      */
-    public function subtract(Part $partA, ?Part $partB): InterfaceRebrickablePart
+    public function subtract(Part $partMinuend, ?Part $partSubtrahend): InterfaceRebrickablePart
     {
-        $this->checkClass->checkClass($partA, InterfaceRebrickablePart::class);
-        $bQuantity = $partB->quantity ?? 0;
+        $this->checkClass->checkClass($partMinuend, InterfaceRebrickablePart::class);
+        $bQuantity = $partSubtrahend->quantity ?? 0;
         $bSpareQuantity = 0;
-        if (null !== $partB) {
-            $this->checkClass->checkClass($partB, InterfaceRebrickablePart::class);
+        if (null !== $partSubtrahend) {
+            $this->checkClass->checkClass($partSubtrahend, InterfaceRebrickablePart::class);
 
-            /** @var InterfaceRebrickablePart $partB */
-            $bSpareQuantity = $partB->spareQuantity;
+            /** @var InterfaceRebrickablePart $partSubtrahend */
+            $bSpareQuantity = $partSubtrahend->spareQuantity;
         }
 
-        /** @var InterfaceRebrickablePart $partA */
-        $quantity = max(0, $partA->quantity - $bQuantity);
-        $spareQuantity = max(0, $partA->spareQuantity - $bSpareQuantity);
+        /** @var InterfaceRebrickablePart $partMinuend */
+        $quantity = max(0, $partMinuend->quantity - $bQuantity);
+        $spareQuantity = max(0, $partMinuend->spareQuantity - $bSpareQuantity);
 
-        return new RebrickablePart($partA->part, $partA->color, $quantity, $spareQuantity);
+        return new RebrickablePart($partMinuend->part, $partMinuend->color, $quantity, $spareQuantity);
     }
 }
