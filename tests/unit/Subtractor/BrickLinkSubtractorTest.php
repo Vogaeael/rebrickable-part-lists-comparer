@@ -11,14 +11,14 @@ use Vogaeael\RebrickablePartListsComparer\tests\unit\Model\EqualsDecorator\Brick
 class BrickLinkSubtractorTest extends AbstractSubtractorTest
 {
     #[DataProvider('quantityProvider')]
-    public function testSubtract(int $quantityA, int $quantityB, int $quantityResult): void
+    public function testSubtract(int $quantityMinuend, int $quantitySubtrahend, int $quantityResult): void
     {
-        $partA = new BrickLinkPart('itemTypeA', 'itemIdA', 'colorIdA', $quantityA);
-        $partB = new BrickLinkPart('itemTypeB', 'itemIdB', 'colorIdB', $quantityB);
+        $partMinuend = new BrickLinkPart('itemTypeMinuend', 'itemIdMinuend', 'colorIdMinuend', $quantityMinuend);
+        $partSubtrahend = new BrickLinkPart('itemTypeSubtrahend', 'itemIdSubtrahend', 'colorIdSubtrahend', $quantitySubtrahend);
         $subtractor = new BrickLinkSubtractor(new CheckClass());
 
-        $expected = new BrickLinkPart('itemTypeA', 'itemIdA', 'colorIdA', $quantityResult);
-        $actual = $subtractor->subtract($partA, $partB);
+        $expected = new BrickLinkPart('itemTypeMinuend', 'itemIdMinuend', 'colorIdMinuend', $quantityResult);
+        $actual = $subtractor->subtract($partMinuend, $partSubtrahend);
         $this->assertObjectEquals($expected, new BrickLinkPartEqualsDecorator($actual));
     }
 }

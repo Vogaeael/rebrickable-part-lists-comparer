@@ -2,23 +2,23 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Model\EqualsDecorator;
 
-use Vogaeael\RebrickablePartListsComparer\Model\InterfaceBrickStoreBSXPart;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceLDCadPart;
 
-class BrickStoreBSXEqualsDecorator implements InterfaceBrickStoreBSXPart
+class LDCadPartEqualsDecorator implements InterfaceLDCadPart
 {
-    public string $itemTypeId {
+    public string $identifier {
         get {
-            return $this->decorated->itemTypeId;
+            return $this->decorated->identifier;
         }
     }
-    public string $itemId {
+    public string $color {
         get {
-            return $this->decorated->itemId;
+            return $this->decorated->color;
         }
     }
-    public string $colorId {
+    public string $sourceInv {
         get {
-            return $this->decorated->colorId;
+            return $this->decorated->sourceInv;
         }
     }
     public int $quantity {
@@ -26,21 +26,21 @@ class BrickStoreBSXEqualsDecorator implements InterfaceBrickStoreBSXPart
             return $this->decorated->quantity;
         }
     }
-    
+
     public function __construct(
-        private readonly InterfaceBrickStoreBSXPart $decorated
+        private readonly InterfaceLDCadPart $decorated
     ) {
     }
 
-    public function equals(InterfaceBrickStoreBSXPart $other): bool
+    public function equals(InterfaceLDCadPart $other): bool
     {
-        if ($other->itemTypeId !== $this->decorated->itemTypeId) {
+        if ($other->identifier !== $this->decorated->identifier) {
             return false;
         }
-        if ($other->itemId !== $this->decorated->itemId) {
+        if ($other->color !== $this->decorated->color) {
             return false;
         }
-        if ($other->colorId !== $this->decorated->colorId) {
+        if ($other->sourceInv !== $this->decorated->sourceInv) {
             return false;
         }
         if ($other->quantity !== $this->decorated->quantity) {

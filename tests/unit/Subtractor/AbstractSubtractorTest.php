@@ -10,23 +10,23 @@ class AbstractSubtractorTest extends TestCase
     {
         return[
             [
-                'quantityA' => 6,
-                'quantityB' => 2,
+                'quantityMinuend' => 6,
+                'quantitySubtrahend' => 2,
                 'quantityResult' => 4,
             ],
             [
-                'quantityA' => 20,
-                'quantityB' => 5,
+                'quantityMinuend' => 20,
+                'quantitySubtrahend' => 5,
                 'quantityResult' => 15,
             ],
             [
-                'quantityA' => 122,
-                'quantityB' => 122,
+                'quantityMinuend' => 122,
+                'quantitySubtrahend' => 122,
                 'quantityResult' => 0,
             ],
             [
-                'quantityA' => 10,
-                'quantityB' => 82,
+                'quantityMinuend' => 10,
+                'quantitySubtrahend' => 82,
                 'quantityResult' => 0,
             ]
         ];
