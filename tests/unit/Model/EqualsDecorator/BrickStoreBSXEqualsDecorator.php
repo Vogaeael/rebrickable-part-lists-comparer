@@ -11,16 +11,19 @@ class BrickStoreBSXEqualsDecorator implements InterfaceBrickStoreBSXPart
             return $this->decorated->itemTypeId;
         }
     }
+
     public string $itemId {
         get {
             return $this->decorated->itemId;
         }
     }
+
     public string $colorId {
         get {
             return $this->decorated->colorId;
         }
     }
+
     public int $quantity {
         get {
             return $this->decorated->quantity;

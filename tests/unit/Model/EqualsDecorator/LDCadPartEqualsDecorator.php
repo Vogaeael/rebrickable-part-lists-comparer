@@ -11,16 +11,19 @@ class LDCadPartEqualsDecorator implements InterfaceLDCadPart
             return $this->decorated->identifier;
         }
     }
+
     public string $color {
         get {
             return $this->decorated->color;
         }
     }
+
     public string $sourceInv {
         get {
             return $this->decorated->sourceInv;
         }
     }
+
     public int $quantity {
         get {
             return $this->decorated->quantity;

@@ -11,16 +11,19 @@ class BrickLinkPartEqualsDecorator implements InterfaceBrickLinkPart
             return $this->decorated->itemType;
         }
     }
+
     public string $itemId {
         get {
             return $this->decorated->itemId;
         }
     }
+
     public string $colorId {
         get {
             return $this->decorated->colorId;
         }
     }
+
     public int $quantity {
         get {
             return $this->decorated->quantity;
