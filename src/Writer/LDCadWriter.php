@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Writer;
 
-use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceLDCadPart;
 
 class LDCadWriter extends AbstractWriter
 {
@@ -17,12 +17,12 @@ class LDCadWriter extends AbstractWriter
         $content .= 'sortOn=description' . PHP_EOL . PHP_EOL;
         $content .= '<items>' . PHP_EOL;
         foreach ($parts as $part) {
-            $this->checkClass->checkClass($part, LDCadPart::class);
+            $this->checkClass->checkClass($part, InterfaceLDCadPart::class);
             if ($part->quantity === 0) {
                 continue;
             }
 
-            /** @var LDCadPart $part */
+            /** @var InterfaceLDCadPart $part */
             $content .= $part->identifier . '.dat:';
             $content .= '[sourceInv=' . $part->sourceInv . '] ';
             $content .= '[color=' . $part->color . '] ';

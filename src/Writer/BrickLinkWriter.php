@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Writer;
 
-use Vogaeael\RebrickablePartListsComparer\Model\BrickLinkPart;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceBrickLinkPart;
 
 class BrickLinkWriter extends AbstractWriter
 {
@@ -13,12 +13,12 @@ class BrickLinkWriter extends AbstractWriter
     {
         $xml = '<INVENTORY>' . PHP_EOL;
         foreach ($parts as $part) {
-            $this->checkClass->checkClass($part, BrickLinkPart::class);
+            $this->checkClass->checkClass($part, InterfaceBrickLinkPart::class);
             if ($part->quantity === 0) {
                 continue;
             }
 
-            /** @var BrickLinkPart $part */
+            /** @var InterfaceBrickLinkPart $part */
             $xml .= "\t<ITEM>" . PHP_EOL;
             $xml .= "\t\t<ITEMTYPE>" . $part->itemType . '</ITEMTYPE>' . PHP_EOL;
             $xml .= "\t\t<ITEMID>" . $part->itemId . '</ITEMID>' . PHP_EOL;

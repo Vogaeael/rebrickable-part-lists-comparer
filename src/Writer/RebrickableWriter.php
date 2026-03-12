@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Writer;
 
-use Vogaeael\RebrickablePartListsComparer\Model\RebrickablePart;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceRebrickablePart;
 
 class RebrickableWriter extends AbstractWriter
 {
@@ -14,9 +14,9 @@ class RebrickableWriter extends AbstractWriter
         $fp = fopen($filePath, 'w+');
         fputcsv($fp, ['Part', 'Color', 'Quantity', 'Is Spare'], ",", "");
         foreach ($parts as $part) {
-            $this->checkClass->checkClass($part, RebrickablePart::class);
+            $this->checkClass->checkClass($part, InterfaceRebrickablePart::class);
 
-            /** @var RebrickablePart $part */
+            /** @var InterfaceRebrickablePart $part */
             if ($part->quantity !== 0) {
                 fputcsv($fp, [$part->part, $part->color, $part->quantity, 'False'], ",", "");
             }

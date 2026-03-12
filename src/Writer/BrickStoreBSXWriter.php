@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Writer;
 
-use Vogaeael\RebrickablePartListsComparer\Model\BrickStoreBSXPart;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceBrickStoreBSXPart;
 
 class BrickStoreBSXWriter extends AbstractWriter
 {
@@ -13,12 +13,12 @@ class BrickStoreBSXWriter extends AbstractWriter
     {
         $xml = '<BrickStoreXML><Inventory>';
         foreach ($parts as $part) {
-            $this->checkClass->checkClass($part, BrickStoreBSXPart::class);
+            $this->checkClass->checkClass($part, InterfaceBrickStoreBSXPart::class);
             if ($part->quantity === 0) {
                 continue;
             }
 
-            /** @var BrickStoreBSXPart $part */
+            /** @var InterfaceBrickStoreBSXPart $part */
             $xml .= '<Item>';
             $xml .= '<ItemTypeID>' . $part->itemTypeId . '</ItemTypeID>';
             $xml .= '<ItemID>' . $part->itemId . '</ItemID>';

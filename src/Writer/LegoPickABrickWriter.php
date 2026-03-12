@@ -2,7 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\Writer;
 
-use Vogaeael\RebrickablePartListsComparer\Model\LegoPickABrickPart;
+use Vogaeael\RebrickablePartListsComparer\Model\InterfaceLegoPickABrickPart;
 
 class LegoPickABrickWriter extends AbstractWriter
 {
@@ -14,12 +14,12 @@ class LegoPickABrickWriter extends AbstractWriter
         $fp = fopen($filePath, 'w+');
         fputcsv($fp, ['elementId', 'quantity'], ",", "");
         foreach ($parts as $part) {
-            $this->checkClass->checkClass($part, LegoPickABrickPart::class);
+            $this->checkClass->checkClass($part, InterfaceLegoPickABrickPart::class);
             if ($part->quantity === 0) {
                 continue;
             }
 
-            /** @var LegoPickABrickPart $part */
+            /** @var InterfaceLegoPickABrickPart $part */
             fputcsv($fp, [$part->elementId, $part->quantity], ",", "");
         }
 
