@@ -21,7 +21,7 @@ class LegoPickABrickWriterTest extends TestCase
         $part = new LegoPickABrickPart('elementIdD', 26);
         $parts[$part->generateKey()] = $part;
 
-        $filePath = __DIR__ . '/../../data/write/lego_pab_parts.csv';
+        $filePath = __DIR__ . '/../../data/write/unit_lego_pab_parts.csv';
 
         $writer = new LegoPickABrickWriter(new CheckClass());
         $writer->writePart($parts, $filePath);

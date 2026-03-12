@@ -21,7 +21,7 @@ class BrickStoreBSXWriterTest extends TestCase
         $part = new BrickStoreBSXPart('itemTypeD', 'itemIdD', 'colorIdD', 26);
         $parts[$part->generateKey()] = $part;
 
-        $filePath = __DIR__ . '/../../data/write/brick_store_parts.bsx';
+        $filePath = __DIR__ . '/../../data/write/unit_brick_store_parts.bsx';
 
         $writer = new BrickStoreBSXWriter(new CheckClass());
         $writer->writePart($parts, $filePath);

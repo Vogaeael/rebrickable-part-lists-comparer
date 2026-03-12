@@ -21,7 +21,7 @@ class LDCadWriterTest extends TestCase
         $part = new LDCadPart('identifierD', 'colorIdD', 'sourceInvD', 26);
         $parts[$part->generateKey()] = $part;
 
-        $filePath = __DIR__ . '/../../data/write/ldcad_parts.pbg';
+        $filePath = __DIR__ . '/../../data/write/unit_ldcad_parts.pbg';
 
         $writer = new LDCadWriter(new CheckClass());
         $writer->writePart($parts, $filePath);

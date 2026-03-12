@@ -11,6 +11,26 @@ use Vogaeael\RebrickablePartListsComparer\Types;
 
 final class ComparerTest extends TestCase
 {
+    public function testSubtractFiles(): void
+    {
+        $filePathMinuend = __DIR__ . '/../data/rebrickable_parts_minuend.csv';
+        $filePathSubtrahend = __DIR__ . '/../data/rebrickable_parts.csv';
+
+        $filePathResult = __DIR__ . '/../data/write/integration_rebrickable_parts_result.csv';
+
+        $comparer = new Comparer();
+        $comparer->subtractFiles(Types::Rebrickable, $filePathMinuend, $filePathSubtrahend, $filePathResult);
+
+        $expected = 'Part,Color,Quantity,Is Spare' . PHP_EOL;
+        $expected .= '99781,0,2,False' . PHP_EOL;
+        $expected .= '970c27pr0039,7,3,False' . PHP_EOL;
+        $expected .= '6141,11,2,False' . PHP_EOL;
+
+        $this->assertEquals($expected, file_get_contents($filePathResult));
+
+        unlink($filePathResult);
+    }
+
     public function testSubtractList(): void
     {
         $partsMinuend = [];

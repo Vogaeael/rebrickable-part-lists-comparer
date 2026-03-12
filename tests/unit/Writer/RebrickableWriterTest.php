@@ -19,7 +19,7 @@ class RebrickableWriterTest extends TestCase
         $part = new RebrickablePart('partC', 'colorC', 0, 4);
         $parts[$part->generateKey()] = $part;
 
-        $filePath = __DIR__ . '/../../data/write/rebrickable_parts.csv';
+        $filePath = __DIR__ . '/../../data/write/unit_rebrickable_parts.csv';
 
         $writer = new RebrickableWriter(new CheckClass());
         $writer->writePart($parts, $filePath);

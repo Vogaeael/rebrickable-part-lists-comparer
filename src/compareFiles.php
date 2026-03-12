@@ -5,11 +5,13 @@ require __DIR__ . '/../vendor/autoload.php';
 use Vogaeael\RebrickablePartListsComparer\Comparer;
 use Vogaeael\RebrickablePartListsComparer\Types;
 
-$type = $argv[1];
+$typeString = $argv[1];
 $fileMinuend = $argv[2];
 $fileSubtrahend = $argv[3];
 $resultFile = $argv[4];
 
 $comparer = new Comparer();
-$type = Types::from($type);
+$type = Types::from($typeString);
 $comparer->subtractFiles($type, $fileMinuend, $fileSubtrahend, $resultFile);
+
+die('SOME INFOS');

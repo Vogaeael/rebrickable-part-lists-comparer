@@ -21,7 +21,7 @@ class BrickLinkWriterTest extends TestCase
         $part = new BrickLinkPart('itemTypeD', 'itemIdD', 'colorIdD', 26);
         $parts[$part->generateKey()] = $part;
 
-        $filePath = __DIR__ . '/../../data/write/brick_link_parts.xml';
+        $filePath = __DIR__ . '/../../data/write/unit_brick_link_parts.xml';
 
         $writer = new BrickLinkWriter(new CheckClass());
         $writer->writePart($parts, $filePath);
