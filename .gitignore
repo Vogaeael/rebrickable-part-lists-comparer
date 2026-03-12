@@ -8,3 +8,4 @@
 /.phpunit.cache
 /coverage.txt
 /coverage-report
+/tests/data/write/*
