@@ -12,16 +12,16 @@ class RebrickableWriter extends AbstractWriter
     public function writePart(array $parts, string $filePath): void
     {
         $fp = fopen($filePath, 'w+');
-        fputcsv($fp, ['Part', 'Color', 'Quantity', 'Is Spare'], ",", '"', "");
+        fputcsv($fp, ['Part', 'Color', 'Quantity', 'Is Spare'], ",", "", "");
         foreach ($parts as $part) {
             $this->checkClass->checkClass($part, InterfaceRebrickablePart::class);
 
             /** @var InterfaceRebrickablePart $part */
             if ($part->quantity !== 0) {
-                fputcsv($fp, [$part->part, $part->color, $part->quantity, 'False'], ",", '"', "");
+                fputcsv($fp, [$part->part, $part->color, $part->quantity, 'False'], ",", "", "");
             }
             if ($part->spareQuantity !== 0) {
-                fputcsv($fp, [$part->part, $part->color, $part->spareQuantity, 'True'], ",", '"', "");
+                fputcsv($fp, [$part->part, $part->color, $part->spareQuantity, 'True'], ",", "", "");
             }
         }
 
