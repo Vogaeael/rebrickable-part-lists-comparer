@@ -7,7 +7,7 @@ use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\BrickLinkPart;
 use Vogaeael\RebrickablePartListsComparer\Writer\BrickLinkWriter;
 
-class BrickLinkWriterTest extends TestCase
+final class BrickLinkWriterTest extends TestCase
 {
     public function testWritePart(): void
     {

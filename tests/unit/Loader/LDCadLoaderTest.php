@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Loader\LDCadLoader;
 use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 
-class LDCadLoaderTest extends TestCase
+final class LDCadLoaderTest extends TestCase
 {
     public function testDoesFileExistOrException(): void
     {

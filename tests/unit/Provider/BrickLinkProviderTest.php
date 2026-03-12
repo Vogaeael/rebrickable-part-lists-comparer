@@ -10,7 +10,7 @@ use Vogaeael\RebrickablePartListsComparer\Subtractor\BrickLinkSubtractor;
 use Vogaeael\RebrickablePartListsComparer\Types;
 use Vogaeael\RebrickablePartListsComparer\Writer\BrickLinkWriter;
 
-class BrickLinkProviderTest extends TestCase
+final class BrickLinkProviderTest extends TestCase
 {
     public function testGetLoader(): void
     {

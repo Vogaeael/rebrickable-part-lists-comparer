@@ -9,7 +9,7 @@ use Vogaeael\RebrickablePartListsComparer\Model\BrickLinkPart;
 use Vogaeael\RebrickablePartListsComparer\Subtractor\BrickLinkSubtractor;
 use Vogaeael\RebrickablePartListsComparer\tests\unit\Model\EqualsDecorator\BrickLinkPartEqualsDecorator;
 
-class BrickLinkSubtractorTest extends TestCase
+final class BrickLinkSubtractorTest extends TestCase
 {
     #[DataProviderExternal(SubtractorTestQuantityProvider::class, 'quantityProvider')]
     public function testSubtract(int $quantityMinuend, int $quantitySubtrahend, int $quantityResult): void

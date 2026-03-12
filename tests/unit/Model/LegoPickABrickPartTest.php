@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Model\LegoPickABrickPart;
 
-class LegoPickABrickPartTest extends TestCase
+final class LegoPickABrickPartTest extends TestCase
 {
     public static function paramsAndResultsProvider(): array
     {

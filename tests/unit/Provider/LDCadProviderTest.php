@@ -10,7 +10,7 @@ use Vogaeael\RebrickablePartListsComparer\Subtractor\LDCadSubtractor;
 use Vogaeael\RebrickablePartListsComparer\Types;
 use Vogaeael\RebrickablePartListsComparer\Writer\LDCadWriter;
 
-class LDCadProviderTest extends TestCase
+final class LDCadProviderTest extends TestCase
 {
     public function testGetLoader(): void
     {

@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Model\RebrickablePart;
 
-class RebrickablePartTest extends TestCase
+final class RebrickablePartTest extends TestCase
 {
     public static function paramsAndResultsProvider(): array
     {

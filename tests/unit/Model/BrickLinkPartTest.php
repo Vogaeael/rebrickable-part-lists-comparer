@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Model\BrickLinkPart;
 
-class BrickLinkPartTest extends TestCase
+final class BrickLinkPartTest extends TestCase
 {
     /**
      * @return array<string, array<string, int | string>>[]

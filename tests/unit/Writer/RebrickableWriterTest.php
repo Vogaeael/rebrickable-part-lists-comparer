@@ -7,7 +7,7 @@ use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\RebrickablePart;
 use Vogaeael\RebrickablePartListsComparer\Writer\RebrickableWriter;
 
-class RebrickableWriterTest extends TestCase
+final class RebrickableWriterTest extends TestCase
 {
     public function testWritePart(): void
     {

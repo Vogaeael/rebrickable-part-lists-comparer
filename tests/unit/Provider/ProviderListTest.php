@@ -11,7 +11,7 @@ use Vogaeael\RebrickablePartListsComparer\Provider\LegoPickABrickProvider;
 use Vogaeael\RebrickablePartListsComparer\Provider\ProviderList;
 use Vogaeael\RebrickablePartListsComparer\Provider\RebrickableProvider;
 
-class ProviderListTest extends TestCase
+final class ProviderListTest extends TestCase
 {
     public function testGetProviders(): void
     {

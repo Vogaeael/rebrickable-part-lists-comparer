@@ -7,7 +7,7 @@ use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\BrickStoreBSXPart;
 use Vogaeael\RebrickablePartListsComparer\Writer\BrickStoreBSXWriter;
 
-class BrickStoreBSXWriterTest extends TestCase
+final class BrickStoreBSXWriterTest extends TestCase
 {
     public function testWritePart(): void
     {

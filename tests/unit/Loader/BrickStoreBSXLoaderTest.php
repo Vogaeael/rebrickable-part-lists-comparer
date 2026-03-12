@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Loader\BrickStoreBSXLoader;
 use Vogaeael\RebrickablePartListsComparer\Model\BrickStoreBSXPart;
 
-class BrickStoreBSXLoaderTest extends TestCase
+final class BrickStoreBSXLoaderTest extends TestCase
 {
     public function testDoesFileExistOrException(): void
     {

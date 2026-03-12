@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 
-class LDCadPartTest extends TestCase
+final class LDCadPartTest extends TestCase
 {
     public static function paramsAndResultsProvider(): array
     {

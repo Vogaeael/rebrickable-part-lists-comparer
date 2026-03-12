@@ -10,7 +10,7 @@ use Vogaeael\RebrickablePartListsComparer\Subtractor\LegoPickABrickSubtractor;
 use Vogaeael\RebrickablePartListsComparer\Types;
 use Vogaeael\RebrickablePartListsComparer\Writer\LegoPickABrickWriter;
 
-class LegoPickABrickProviderTest extends TestCase
+final class LegoPickABrickProviderTest extends TestCase
 {
     public function testGetLoader(): void
     {

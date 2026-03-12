@@ -10,7 +10,7 @@ use Vogaeael\RebrickablePartListsComparer\Subtractor\BrickStoreBSXSubtractor;
 use Vogaeael\RebrickablePartListsComparer\Types;
 use Vogaeael\RebrickablePartListsComparer\Writer\BrickStoreBSXWriter;
 
-class BrickStoreBSXProviderTest extends TestCase
+final class BrickStoreBSXProviderTest extends TestCase
 {
     public function testGetLoader(): void
     {

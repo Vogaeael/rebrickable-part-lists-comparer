@@ -7,7 +7,7 @@ use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\LegoPickABrickPart;
 use Vogaeael\RebrickablePartListsComparer\Writer\LegoPickABrickWriter;
 
-class LegoPickABrickWriterTest extends TestCase
+final class LegoPickABrickWriterTest extends TestCase
 {
     public function testWritePart(): void
     {

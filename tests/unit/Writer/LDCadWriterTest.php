@@ -7,7 +7,7 @@ use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 use Vogaeael\RebrickablePartListsComparer\Writer\LDCadWriter;
 
-class LDCadWriterTest extends TestCase
+final class LDCadWriterTest extends TestCase
 {
     public function testWritePart(): void
     {

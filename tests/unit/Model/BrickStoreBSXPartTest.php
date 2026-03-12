@@ -6,7 +6,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Model\BrickStoreBSXPart;
 
-class BrickStoreBSXPartTest extends TestCase
+final class BrickStoreBSXPartTest extends TestCase
 {
     public static function paramsAndResultsProvider(): array
     {

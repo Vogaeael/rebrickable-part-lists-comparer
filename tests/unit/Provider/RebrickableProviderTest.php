@@ -10,7 +10,7 @@ use Vogaeael\RebrickablePartListsComparer\Subtractor\RebrickableSubtractor;
 use Vogaeael\RebrickablePartListsComparer\Types;
 use Vogaeael\RebrickablePartListsComparer\Writer\RebrickableWriter;
 
-class RebrickableProviderTest extends TestCase
+final class RebrickableProviderTest extends TestCase
 {
     public function testGetLoader(): void
     {

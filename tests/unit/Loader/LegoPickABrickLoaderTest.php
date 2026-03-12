@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Loader\LegoPickABrickLoader;
 use Vogaeael\RebrickablePartListsComparer\Model\LegoPickABrickPart;
 
-class LegoPickABrickLoaderTest extends TestCase
+final class LegoPickABrickLoaderTest extends TestCase
 {
     public function testDoesFileExistOrException(): void
     {

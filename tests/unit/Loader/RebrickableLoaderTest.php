@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Loader\RebrickableLoader;
 use Vogaeael\RebrickablePartListsComparer\Model\RebrickablePart;
 
-class RebrickableLoaderTest extends TestCase
+final class RebrickableLoaderTest extends TestCase
 {
     public function testDoesFileExistOrException(): void
     {

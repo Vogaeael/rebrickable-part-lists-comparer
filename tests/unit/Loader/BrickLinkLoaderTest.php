@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Loader\BrickLinkLoader;
 use Vogaeael\RebrickablePartListsComparer\Model\BrickLinkPart;
 
-class BrickLinkLoaderTest extends TestCase
+final class BrickLinkLoaderTest extends TestCase
 {
     public function testDoesFileExistOrException(): void
     {
