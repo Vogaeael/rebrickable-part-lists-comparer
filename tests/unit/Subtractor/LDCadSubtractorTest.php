@@ -9,7 +9,7 @@ use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 use Vogaeael\RebrickablePartListsComparer\Subtractor\LDCadSubtractor;
 use Vogaeael\RebrickablePartListsComparer\tests\unit\Model\EqualsDecorator\LDCadPartEqualsDecorator;
 
-class LDCadSubtractorTestCase extends TestCase
+class LDCadSubtractorTest extends TestCase
 {
     #[DataProviderExternal(SubtractorTestQuantityProvider::class, 'quantityProvider')]
     public function testSubtract(int $quantityMinuend, int $quantitySubtrahend, int $quantityResult): void
