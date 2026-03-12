@@ -12,7 +12,7 @@ class LegoPickABrickWriter extends AbstractWriter
     public function writePart(array $parts, string $filePath): void
     {
         $fp = fopen($filePath, 'w+');
-        fputcsv($fp, ['elementId', 'quantity'], ",", "", "");
+        fputcsv($fp, ['elementId', 'quantity'], ",", '"', "");
         foreach ($parts as $part) {
             $this->checkClass->checkClass($part, InterfaceLegoPickABrickPart::class);
             if ($part->quantity === 0) {
@@ -20,7 +20,7 @@ class LegoPickABrickWriter extends AbstractWriter
             }
 
             /** @var InterfaceLegoPickABrickPart $part */
-            fputcsv($fp, [$part->elementId, $part->quantity], ",", "", "");
+            fputcsv($fp, [$part->elementId, $part->quantity], ",", '"', "");
         }
 
         fclose($fp);
