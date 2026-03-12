@@ -2,9 +2,7 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Subtractor;
 
-use PHPUnit\Framework\TestCase;
-
-class AbstractSubtractorTest extends TestCase
+class SubtractorTestQuantityProvider
 {
     public static function quantityProvider(): array
     {

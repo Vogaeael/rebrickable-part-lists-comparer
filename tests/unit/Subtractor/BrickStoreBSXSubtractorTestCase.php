@@ -2,15 +2,16 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Subtractor;
 
-use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\BrickStoreBSXPart;
 use Vogaeael\RebrickablePartListsComparer\Subtractor\BrickStoreBSXSubtractor;
 use Vogaeael\RebrickablePartListsComparer\tests\unit\Model\EqualsDecorator\BrickStoreBSXEqualsDecorator;
 
-class BrickStoreBSXSubtractorTest extends AbstractSubtractorTest
+class BrickStoreBSXSubtractorTestCase extends TestCase
 {
-    #[DataProvider('quantityProvider')]
+    #[DataProviderExternal(SubtractorTestQuantityProvider::class, 'quantityProvider')]
     public function testSubtract(int $quantityMinuend, int $quantitySubtrahend, int $quantityResult): void
     {
         $partMinuend = new BrickStoreBSXPart('itemTypeIdMinuend', 'itemIdMinuend', 'colorIdMinuend', $quantityMinuend);

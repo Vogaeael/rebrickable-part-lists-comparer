@@ -2,15 +2,16 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Subtractor;
 
-use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\RebrickablePart;
 use Vogaeael\RebrickablePartListsComparer\Subtractor\RebrickableSubtractor;
 use Vogaeael\RebrickablePartListsComparer\tests\unit\Model\EqualsDecorator\RebrickablePartEqualsDecorator;
 
-class RebrickableSubtractorTest extends AbstractSubtractorTest
+class RebrickableSubtractorTestCase extends TestCase
 {
-    #[DataProvider('quantityProvider')]
+    #[DataProviderExternal(SubtractorTestQuantityProvider::class, 'quantityProvider')]
     public function testSubtract(int $quantityMinuend, int $quantitySubtrahend, int $quantityResult): void
     {
         $partMinuend = new RebrickablePart('partMinuend', 'colorMinuend', $quantityMinuend, 0);
@@ -22,7 +23,7 @@ class RebrickableSubtractorTest extends AbstractSubtractorTest
         $this->assertObjectEquals($expected, new RebrickablePartEqualsDecorator($actual));
     }
 
-    #[DataProvider('quantityProvider')]
+    #[DataProviderExternal(SubtractorTestQuantityProvider::class, 'quantityProvider')]
     public function testSubtractSpareQuantity(int $quantityMinuend, int $quantitySubtrahend, int $quantityResult): void
     {
         $partMinuend = new RebrickablePart('partMinuend', 'colorMinuend', 0, $quantityMinuend);

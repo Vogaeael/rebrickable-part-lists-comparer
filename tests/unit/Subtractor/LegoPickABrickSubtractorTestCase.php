@@ -2,15 +2,16 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Subtractor;
 
-use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\LegoPickABrickPart;
 use Vogaeael\RebrickablePartListsComparer\Subtractor\LegoPickABrickSubtractor;
 use Vogaeael\RebrickablePartListsComparer\tests\unit\Model\EqualsDecorator\LegoPickABrickPartEqualsDecorator;
 
-class LegoPickABrickSubtractorTest extends AbstractSubtractorTest
+class LegoPickABrickSubtractorTestCase extends TestCase
 {
-    #[DataProvider('quantityProvider')]
+    #[DataProviderExternal(SubtractorTestQuantityProvider::class, 'quantityProvider')]
     public function testSubtract(int $quantityMinuend, int $quantitySubtrahend, int $quantityResult): void
     {
         $partMinuend = new LegoPickABrickPart('elementIdMinuend', $quantityMinuend);

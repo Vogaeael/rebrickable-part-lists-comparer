@@ -2,15 +2,16 @@
 
 namespace Vogaeael\RebrickablePartListsComparer\tests\unit\Subtractor;
 
-use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\DataProviderExternal;
+use PHPUnit\Framework\TestCase;
 use Vogaeael\RebrickablePartListsComparer\Helper\CheckClass;
 use Vogaeael\RebrickablePartListsComparer\Model\LDCadPart;
 use Vogaeael\RebrickablePartListsComparer\Subtractor\LDCadSubtractor;
 use Vogaeael\RebrickablePartListsComparer\tests\unit\Model\EqualsDecorator\LDCadPartEqualsDecorator;
 
-class LDCadSubtractorTest extends AbstractSubtractorTest
+class LDCadSubtractorTestCase extends TestCase
 {
-    #[DataProvider('quantityProvider')]
+    #[DataProviderExternal(SubtractorTestQuantityProvider::class, 'quantityProvider')]
     public function testSubtract(int $quantityMinuend, int $quantitySubtrahend, int $quantityResult): void
     {
         $partMinuend = new LDCadPart('identifierMinuend', 'colorMinuend', 'sourceInvMinuend', $quantityMinuend);
