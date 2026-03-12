@@ -8,7 +8,7 @@ use Vogaeael\RebrickablePartListsComparer\Model\LegoPickABrickPart;
 
 class LegoPickABrickPartTest extends TestCase
 {
-    public static function additionProvider(): array
+    public static function paramsAndResultsProvider(): array
     {
         return [
             [
@@ -47,7 +47,7 @@ class LegoPickABrickPartTest extends TestCase
         ];
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetQuantity(array $params, array $results): void
     {
         $part = new LegoPickABrickPart(...$params);
@@ -55,7 +55,7 @@ class LegoPickABrickPartTest extends TestCase
         $this->assertSame($results['quantity'], $part->quantity);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetQuantity(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -64,7 +64,7 @@ class LegoPickABrickPartTest extends TestCase
         $part->quantity = 1;
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetElementId(array $params, array $results): void
     {
         $part = new LegoPickABrickPart(...$params);
@@ -72,7 +72,7 @@ class LegoPickABrickPartTest extends TestCase
         $this->assertSame($results['elementId'], $part->elementId);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetElementId(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -81,7 +81,7 @@ class LegoPickABrickPartTest extends TestCase
         $part->elementId = 'test';
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGenerateKey(array $params, array $results): void
     {
         $part = new LegoPickABrickPart(...$params);

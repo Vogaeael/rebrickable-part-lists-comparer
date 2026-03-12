@@ -8,7 +8,7 @@ use Vogaeael\RebrickablePartListsComparer\Model\RebrickablePart;
 
 class RebrickablePartTest extends TestCase
 {
-    public static function additionProvider(): array
+    public static function paramsAndResultsProvider(): array
     {
         return [
             [
@@ -59,7 +59,7 @@ class RebrickablePartTest extends TestCase
         ];
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetQuantity(array $params, array $results): void
     {
         $part = new RebrickablePart(...$params);
@@ -67,7 +67,7 @@ class RebrickablePartTest extends TestCase
         $this->assertSame($results['quantity'], $part->quantity);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetQuantity(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -76,7 +76,7 @@ class RebrickablePartTest extends TestCase
         $part->quantity = 1;
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetPart(array $params, array $results): void
     {
         $part = new RebrickablePart(...$params);
@@ -84,7 +84,7 @@ class RebrickablePartTest extends TestCase
         $this->assertSame($results['part'], $part->part);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetPart(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -93,7 +93,7 @@ class RebrickablePartTest extends TestCase
         $part->part = 'test';
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetColor(array $params, array $results): void
     {
         $part = new RebrickablePart(...$params);
@@ -101,7 +101,7 @@ class RebrickablePartTest extends TestCase
         $this->assertSame($results['color'], $part->color);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetColor(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -110,7 +110,7 @@ class RebrickablePartTest extends TestCase
         $part->color = 'test';
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGetSpareQuantity(array $params, array $results): void
     {
         $part = new RebrickablePart(...$params);
@@ -118,7 +118,7 @@ class RebrickablePartTest extends TestCase
         $this->assertSame($results['spareQuantity'], $part->spareQuantity);
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testSetSpareQuantity(array $params, array $results): void
     {
         $this->expectException(\Error::class);
@@ -127,7 +127,7 @@ class RebrickablePartTest extends TestCase
         $part->spareQuantity = 1;
     }
 
-    #[DataProvider('additionProvider')]
+    #[DataProvider('paramsAndResultsProvider')]
     public function testGenerateKey(array $params, array $results): void
     {
         $part = new RebrickablePart(...$params);
