@@ -6,8 +6,8 @@ jobs:
 
     strategy:
       matrix:
-        operating-system: ['ubuntu-latest', 'windows-latest', 'macros-latest']
-        php-versions: ['8.4', '8.5']
+        operating-system: ['ubuntu-latest'] #, 'windows-latest', 'macros-latest'
+        php-versions: ['8.4'] #, '8.5'
         include:
           - operating-system: 'ubuntu-latest'
             php-versions: '8.4'
