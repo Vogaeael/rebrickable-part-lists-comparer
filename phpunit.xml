@@ -6,7 +6,8 @@
          displayDetailsOnTestsThatTriggerNotices="true"
          displayDetailsOnTestsThatTriggerWarnings="true"
          displayDetailsOnPhpunitDeprecations="true"
-         cacheDirectory=".phpunit.cache">
+         cacheDirectory=".phpunit.cache"
+         bootstrap="vendor/autoload.php">
     <source>
         <include>
             <directory suffix=".php">src/</directory>
@@ -16,6 +17,7 @@
     <testsuites>
         <testsuite name="unit">
             <directory suffix=".php">./tests/unit</directory>
+            <exclude>./tests/unit/Model/EqualsDecorator</exclude>
         </testsuite>
 
         <testsuite name="integration">
