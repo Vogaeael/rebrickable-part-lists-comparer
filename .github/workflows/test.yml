@@ -16,18 +16,10 @@ jobs:
       - name: Clone Repo
         uses: actions/checkout@v5
 
-      - name: Install Dependencies
-        uses: php-actions/composer@v6
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          version: "2.x"
-
-      - name: PHPUnit tests
-        uses: php-actions/phpunit@v4
-        with:
-          version: 13.0
-          php_version: ${{ matrix.php-versions }}
-          php_extensions: simplexml, xdebug
-          configuration: phpunit.xml
-          args: --coverage-text
-        env:
-          XDEBUG_MODE: coverage
+          php-version: ${{ matrix.php-versions }}
+          extensions: simplexml, xdebug
+          coverage: xdebug
+          tools: phpunit:13.0
