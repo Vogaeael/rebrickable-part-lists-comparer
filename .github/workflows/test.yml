@@ -19,12 +19,15 @@ jobs:
       - name: Install Dependencies
         uses: php-actions/composer@v6
         with:
-          php_version: ${{ matrix.php-versions }}
-          php_extensions: simplexml xdebug
           version: "2.x"
 
       - name: PHPUnit tests
         uses: php-actions/phpunit@v4
         with:
+          version: 13.0
+          php_version: ${{ matrix.php-versions }}
+          php_extensions: simplexml, xdebug
           configuration: phpunit.xml
           args: --coverage-text
+        env:
+          XDEBUG_MODE: coverage
