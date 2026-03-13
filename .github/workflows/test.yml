@@ -20,6 +20,7 @@ jobs:
         uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php-versions }}
+          php_extensions: simplexml xdebug
           version: "2.x"
 
       - name: PHPUnit tests
