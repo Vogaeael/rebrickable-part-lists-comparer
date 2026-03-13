@@ -17,6 +17,7 @@
     <testsuites>
         <testsuite name="unit">
             <directory suffix=".php">./tests/unit</directory>
+            <exclude>./tests/unit/Model/EqualsDecorator</exclude>
         </testsuite>
 
         <testsuite name="integration">

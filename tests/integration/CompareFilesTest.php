@@ -15,7 +15,7 @@ final class CompareFilesTest extends TestCase
         $filePathResult = __DIR__ . '/../data/write/integration_rebrickable_parts_script_result.csv';
 
         $scriptFile = __DIR__ . '/../../src/compareFiles.php';
-        exec(sprintf('%s %s %s %s %s', $scriptFile, Types::Rebrickable->value, $filePathMinuend, $filePathSubtrahend, $filePathResult));
+        shell_exec(sprintf('php %s %s %s %s %s', $scriptFile, Types::Rebrickable->value, $filePathMinuend, $filePathSubtrahend, $filePathResult));
 
         $expected = 'Part,Color,Quantity,Is Spare' . PHP_EOL;
         $expected .= '99781,0,2,False' . PHP_EOL;
