@@ -1,0 +1,29 @@
+name: Github Test Action
+on: [pull_request]
+jobs:
+  run:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: ['ubuntu-latest', 'windows-latest', 'macros-latest']
+        php-versions: ['8.4', '8.5']
+        include:
+          - operating-system: 'ubuntu-latest'
+            php-versions: '8.4'
+
+    steps:
+      - name: Clone Repo
+        uses: actions/checkout@v5
+
+      - name: Install Dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: ${{ matrix.php-versions }}
+          version: "2.x"
+
+      - name: PHPUnit tests
+        uses: php-actions/phpunit@v4
+        with:
+          configuration: phpunit.xml
+          args: --coverage-text
