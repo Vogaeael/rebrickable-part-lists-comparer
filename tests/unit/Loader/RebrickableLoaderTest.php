@@ -27,11 +27,17 @@ final class RebrickableLoaderTest extends TestCase
 
         $part = new RebrickablePart('99781', '0', 1, 0);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new RebrickablePart('970c27pr0039', '72', 2, 0  );
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new RebrickablePart('6141', '11', 14, 2);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
     }
 }
