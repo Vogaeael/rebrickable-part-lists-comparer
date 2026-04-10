@@ -27,11 +27,17 @@ final class BrickStoreBSXLoaderTest extends TestCase
 
         $part = new BrickStoreBSXPart('P', '99781', '86', 1);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new BrickStoreBSXPart('P', '6112', '11', 2);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new BrickStoreBSXPart('P', '3010', '17', 14);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
     }
 }

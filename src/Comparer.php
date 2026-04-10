@@ -61,9 +61,9 @@ class Comparer
         $resultParts = [];
 
         foreach ($partsMinuend as $partMinuend) {
-            $partB = $partsSubtrahend[$partMinuend->generateKey()] ?? null;
+            $partSubtrahend = $partsSubtrahend[$partMinuend->generateKey()] ?? null;
 
-            $substraction = $partSubtractor->subtract($partMinuend, $partB);
+            $substraction = $partSubtractor->subtract($partMinuend, $partSubtrahend);
 
             $resultParts[$substraction->generateKey()] = $substraction;
         }

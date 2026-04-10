@@ -27,11 +27,17 @@ final class LegoPickABrickLoaderTest extends TestCase
 
         $part = new LegoPickABrickPart('6016172', 12);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new LegoPickABrickPart('611226', 2);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new LegoPickABrickPart('301026', 4);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
     }
 }

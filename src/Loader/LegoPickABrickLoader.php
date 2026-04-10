@@ -24,7 +24,9 @@ class LegoPickABrickLoader extends AbstractLoader
                     continue;
                 }
 
-                $parts[] = new LegoPickABrickPart((string)$data[0], (int)$data[1]);
+                $part = new LegoPickABrickPart((string)$data[0], (int)$data[1]);
+
+                $parts[$part->generateKey()] = $part;
             }
             fclose($handle);
 

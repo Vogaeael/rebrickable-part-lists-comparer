@@ -27,11 +27,17 @@ final class LDCadLoaderTest extends TestCase
 
         $part = new LDCadPart('99781', '72', 'parts', 5);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new LDCadPart('7504pr0001', '0', 'parts', 2);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new LDCadPart('3010', '15', 'parts', 12);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
     }
 }

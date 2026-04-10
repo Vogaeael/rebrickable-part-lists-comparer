@@ -27,11 +27,17 @@ final class BrickLinkLoaderTest extends TestCase
 
         $part = new BrickLinkPart('P', '30357', '86', 1);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new BrickLinkPart('P', '3023', '63', 2);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
 
         $part = new BrickLinkPart('P', '75435stk01', '11', 1);
         $this->assertContainsEquals($part, $actual);
+        $this->assertArrayHasKey($part->generateKey(), $actual);
+        $this->assertEquals($part, $actual[$part->generateKey()]);
     }
 }
